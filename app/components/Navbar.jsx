@@ -41,22 +41,24 @@ const Navbar = () => {
       <div className={styles.navContent}>
         {/* Logo */}
         <div className={styles.logo}>
-          <Image
-            src={
-              isMobile
-                ? theme === 'light'
-                  ? '/StivlucNoir.svg'
-                  : '/StivlucBlanc.svg'
-                : theme === 'light'
-                ? '/Logo.svg'
-                : '/WhiteLogo.svg'
-            }
-            alt='Logo'
-            width={isMobile ? 140 : 70}
-            height={40}
-            sizes='100vw'
-            priority
-          />
+          <a href='#landing'>
+            <Image
+              src={
+                isMobile
+                  ? theme === 'light'
+                    ? '/StivlucNoir.svg'
+                    : '/StivlucBlanc.svg'
+                  : theme === 'light'
+                  ? '/Logo.svg'
+                  : '/WhiteLogo.svg'
+              }
+              alt='Logo'
+              width={isMobile ? 140 : 70}
+              height={40}
+              sizes='100vw'
+              priority
+            />
+          </a>
         </div>
         {/* Desktop Menu */}
         <ul className={styles.desktopMenu}>

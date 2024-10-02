@@ -13,6 +13,16 @@ body {
   color: hsl(var(--foreground));
 }
 
+.main-content {
+  padding-top: 100px; /* Adjust for navbar height */
+  width: calc(100% - 40px);
+  margin: 0 auto;
+
+  @media (max-width: 880px) {
+    width: calc(100% - 20px);
+  }
+}
+
 /* shadcn purple theme */
 @layer base {
   :root {

@@ -49,8 +49,17 @@
   }
   
   .logo {
-    img {
-      margin-right: 10px;
+    a {
+      display: inline-block;
+      margin-right: 16px;
+  
+      &:hover svg {
+        fill: hsl(var(--primary)); /* Utilise la couleur primaire */
+      }
+    }
+  
+    svg {
+      transition: fill 0.2s;
     }
   }
   
