@@ -1,0 +1,189 @@
+/* components/HeroSection.module.scss */
+
+.hero {
+    position: relative;
+    padding: 100px 20px;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 880px) {
+      padding: 60px 20px;
+    }
+  }
+  
+  .content {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    gap: 40px;
+    animation: fadeIn 1s ease-out;
+  
+    @media (max-width: 880px) {
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+    }
+  }
+  
+  .text {
+    flex: 1;
+    max-width: 550px;
+  
+    @media (max-width: 880px) {
+      flex: none;
+    }
+  }
+  
+  .text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: slideInLeft 1s ease-out;
+  
+    @media (max-width: 880px) {
+      font-size: 2rem;
+    }
+  }
+  
+  .text p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    animation: slideInRight 1s ease-out;
+  
+    @media (max-width: 880px) {
+      font-size: 1.2rem;
+    }
+  }
+  
+  .imageContainer {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    animation: fadeIn 1.5s ease-out;
+  
+    @media (max-width: 880px) {
+      flex: none;
+    }
+  }
+  
+  .mainIllustration {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  
+    @media (max-width: 880px) {
+      margin-top: 24px;
+      width: 200px;
+      height: 200px;
+    }
+
+  }
+  
+  .illustrations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .circle, .square {
+    position: absolute;
+    background-color: hsl(var(--primary));
+    opacity: 0.2;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    top: 20%;
+    left: 5%;
+
+    @media (max-width: 880px) {
+      width: 120px;
+      height: 120px;
+      left: 20%;
+      top: 7%;
+    }
+
+    @media (max-width: 600px) {
+      width: 100px;
+      height: 100px;
+      left: 10%;
+      top: 7%;
+    }
+  }
+  
+  .square {
+    width: 100px;
+    height: 100px;
+    top: 60%;
+    right: 60%;
+
+    @media (max-width: 880px) {
+      width: 85px;
+      height: 85px;
+      top: 30%;
+      right: 10%;
+    }
+
+    @media (max-width: 600px) {
+      width: 75px;
+      height: 75px;
+      top: 30%;
+      right: 15%;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(180deg);
+    }
+    100% {
+      transform: translateY(0) rotate(360deg);
+    }
+  }
+  

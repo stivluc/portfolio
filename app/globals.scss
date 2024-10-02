@@ -14,14 +14,17 @@ body {
 }
 
 .main-content {
-  padding-top: 100px; /* Adjust for navbar height */
+  padding-top: 100px; /* Align with navbar height */
   width: calc(100% - 40px);
+  max-width: 1100px; /* Largeur maximale */
+
   margin: 0 auto;
 
   @media (max-width: 880px) {
     width: calc(100% - 20px);
   }
 }
+
 
 /* shadcn purple theme */
 @layer base {
@@ -46,6 +49,7 @@ body {
     --input: 220 13% 91%; /* #E2E8F0 */
     --ring: 262.1 83.3% 57.8%; /* #7C3AED */
     --radius: 0.5rem;
+    --cursor-color: #0F172A;
     --chart-1: 12 76% 61%; /* #E85D04 */
     --chart-2: 173 58% 39%; /* #2D6A4F */
     --chart-3: 197 37% 24%; /* #1E3A8A */
@@ -73,6 +77,7 @@ body {
     --border: 215 27.9% 16.9%; /* #1E293B */
     --input: 215 27.9% 16.9%; /* #1E293B */
     --ring: 263.4 70% 50.4%; /* #8B5CF6 */
+    --cursor-color: #8B5CF6;
     --chart-1: 220 70% 50%; /* #3B82F6 */
     --chart-2: 160 60% 45%; /* #10B981 */
     --chart-3: 30 80% 55%; /* #F97316 */

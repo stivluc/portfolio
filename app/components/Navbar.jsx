@@ -41,7 +41,7 @@ const Navbar = () => {
       <div className={styles.navContent}>
         {/* Logo */}
         <div className={styles.logo}>
-          <a href='#landing'>
+          <a href='#about'>
             <Image
               src={
                 isMobile
@@ -63,13 +63,13 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className={styles.desktopMenu}>
           <li>
-            <a href='#presentation'>About me</a>
+            <a href='#about'>About me</a>
           </li>
           <li>
             <a href='#projects'>Projects</a>
           </li>
           <li>
-            <a href='#diplomas'>Experience</a>
+            <a href='#experience'>Experience</a>
           </li>
           <li>
             <a href='#contact'>Contact</a>
