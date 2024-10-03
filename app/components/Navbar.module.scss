@@ -116,6 +116,10 @@
         color: hsl(var(--primary));
       }
     }
+
+    .themeSwitcher {
+      margin-right: 5px;
+    }
   
     .separator {
       width: 1px;
@@ -123,12 +127,23 @@
       background-color: hsl(var(--border));
       margin: 0 10px;
     }
+
+    .callButton {
+      display: none;
+  
+      @media (max-width: 880px) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 400px) {
+        display: none;
+      }
+    }
   
     @media (max-width: 880px) {
       .socialIcon {
-        display: none;
-      }
-      .separator {
         display: none;
       }
     }

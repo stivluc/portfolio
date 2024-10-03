@@ -13,6 +13,7 @@ const HeroSection = () => {
         <div className={styles.text}>
           <h1>{`You're one call away from your pixel-perfect app`}</h1>
           <p>{`Hi, I'm Steven Lucas, a passionate full-stack engineer and avid learner.`}</p>
+          <br />
           <p>{`Let's build your solution together.`}</p>
         </div>
         <div className={styles.imageContainer}>

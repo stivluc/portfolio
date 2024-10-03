@@ -1,9 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { FaLinkedin, FaGithub, FaPhone, FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaPhone, FaSun, FaMoon, FaBars, FaTimes, FaEnvelope } from 'react-icons/fa';
 import styles from './Navbar.module.scss';
 import Image from 'next/image';
+import { navSections } from '../config/navSections';
+import { toKebabCase } from '../utils/toKebabCase';
+import { socialIcons } from '../config/socialIcons';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -62,18 +65,11 @@ const Navbar = () => {
         </div>
         {/* Desktop Menu */}
         <ul className={styles.desktopMenu}>
-          <li>
-            <a href='#about'>About me</a>
-          </li>
-          <li>
-            <a href='#projects'>Projects</a>
-          </li>
-          <li>
-            <a href='#experience'>Experience</a>
-          </li>
-          <li>
-            <a href='#contact'>Contact</a>
-          </li>
+          {navSections.map((section) => (
+            <li key={section}>
+              <a href={`#${toKebabCase(section)}`}>{section}</a>
+            </li>
+          ))}
         </ul>
         {/* Right Side Icons */}
         <div className={styles.rightIcons}>
@@ -84,80 +80,64 @@ const Navbar = () => {
           {/* Separator */}
           <div className={styles.separator}></div>
           {/* Social Icons */}
-          <a
-            href='https://linkedin.com/in/stivluc'
-            target='_blank'
-            rel='noopener noreferrer'
-            className={`${styles.iconButton} ${styles.socialIcon}`}
-          >
-            <FaLinkedin />
-          </a>
-          <a
-            href='https://github.com/stivluc'
-            target='_blank'
-            rel='noopener noreferrer'
-            className={`${styles.iconButton} ${styles.socialIcon}`}
-          >
-            <FaGithub />
-          </a>
-          <a href='tel:+33688074187' className={`${styles.iconButton} ${styles.socialIcon}`}>
-            <FaPhone />
-          </a>
-          {/* Mobile Menu Button */}
-          <button className={styles.menuButton} onClick={handleMobileToggle}>
-            {mobileOpen ? <FaTimes /> : <FaBars />}
-          </button>
+          {!isMobile &&
+            socialIcons
+              .filter((icon) => !icon.isMobileOnly)
+              .map((icon) => {
+                return (
+                  <a
+                    key={icon.label}
+                    href={icon.href}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className={`${styles.iconButton} ${styles.socialIcon}`}
+                  >
+                    {icon.icon}
+                  </a>
+                );
+              })}
+          {/* Mobile Menu Button and Phone Icon */}
+          {isMobile && (
+            <>
+              <a href='tel:+33688074187' className={`${styles.iconButton} ${styles.callButton}`}>
+                <FaPhone />
+              </a>
+              <button className={styles.menuButton} onClick={handleMobileToggle}>
+                {mobileOpen ? <FaTimes /> : <FaBars />}
+              </button>
+            </>
+          )}
         </div>
       </div>
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className={styles.mobileMenu}>
           <ul>
-            <li>
-              <a href='#presentation' onClick={handleMobileToggle}>
-                About me
-              </a>
-            </li>
-            <li>
-              <a href='#projects' onClick={handleMobileToggle}>
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href='#diplomas' onClick={handleMobileToggle}>
-                Experience
-              </a>
-            </li>
-            <li>
-              <a href='#contact' onClick={handleMobileToggle}>
-                Contact
-              </a>
-            </li>
+            {navSections.map((section) => (
+              <li key={section}>
+                <a href={`#${toKebabCase(section)}`} onClick={handleMobileToggle}>
+                  {section}
+                </a>
+              </li>
+            ))}
           </ul>
           <div className={styles.separator}></div>
           <div className={styles.mobileSocialIcons}>
-            <a
-              href='https://linkedin.com/in/stivluc'
-              target='_blank'
-              rel='noopener noreferrer'
-              className={styles.mobileSocialIcon}
-            >
-              <FaLinkedin />
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href='https://github.com/stivluc'
-              target='_blank'
-              rel='noopener noreferrer'
-              className={styles.mobileSocialIcon}
-            >
-              <FaGithub />
-              <span>GitHub</span>
-            </a>
-            <a href='tel:+33688074187' className={styles.mobileSocialIcon}>
-              <FaPhone />
-              <span>Call me !</span>
-            </a>
+            {socialIcons.map((icon) => {
+              if (isMobile && !icon.isMobileOnly && icon.icon === 'FaPhone') return null;
+              return (
+                <a
+                  key={icon.label}
+                  href={icon.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className={styles.mobileSocialIcon}
+                >
+                  {icon.icon}
+                  <span>{icon.label}</span>
+                </a>
+              );
+            })}
           </div>
           <div className={styles.mobileFooter}>
             <p>
