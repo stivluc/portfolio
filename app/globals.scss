@@ -1,3 +1,5 @@
+/* globals.scss */
+
 /* Reset styles */
 * {
   margin: 0;
@@ -5,33 +7,15 @@
   box-sizing: border-box;
 }
 
-/* Custom font and base styles */
-html,
-body {
-  font-family: 'Heming, sans-serif';
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-}
-
-.main-content {
-  padding-top: 100px; /* Align with navbar height */
-  width: calc(100% - 40px);
-  max-width: 1100px; /* Largeur maximale */
-
-  margin: 0 auto;
-
-  @media (max-width: 880px) {
-    width: calc(100% - 20px);
-  }
-}
-
-
 /* shadcn purple theme */
 @layer base {
   :root {
+    --font-source-sans: 'Source Sans 3', sans-serif;
+    --font-heming: 'Heming', sans-serif;
+
     --background: 0 0% 97%; /* #fafafa */
     --foreground: 222.2 47.4% 11.2%; /* #0F172A */
-    --card: 0 0% 100%; /* #FFFFFF */
+    --card: 0, 0%, 100%;
     --card-foreground: 222.2 47.4% 11.2%; /* #0F172A */
     --popover: 0 0% 100%; /* #FFFFFF */
     --popover-foreground: 224 71.4% 4.1%; /* #030712 */
@@ -60,7 +44,7 @@ body {
   .dark {
     --background: 240 5% 5%; /* #0B0C0E */
     --foreground: 0 0% 100%; /* #FFFFFF */
-    --card: 228 50% 4%; /* #030712 */
+    --card: 228, 50%, 4%; /* #030712 */
     --card-foreground: 0 0% 100%; /* #FFFFFF */
     --popover: 224 71.4% 4.1%; /* #030712 */
     --popover-foreground: 210 20% 98%; /* #F9FAFB */
@@ -84,4 +68,42 @@ body {
     --chart-4: 280 65% 60%; /* #A855F7 */
     --chart-5: 340 75% 55%; /* #EC4899 */
   }
+}
+
+/* Application des polices */
+html,
+body {
+  font-family: var(--font-source-sans), sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Utilisation de Heming pour les h1 */
+h1 {
+  font-family: var(--font-heming), sans-serif;
+}
+
+/* Autres styles globaux... */
+
+/* main-content déjà défini */
+.main-content {
+  padding-top: 100px; /* Align with navbar height */
+  width: calc(100% - 40px);
+  max-width: 1100px; /* Largeur maximale */
+  margin: 0 auto;
+
+  @media (max-width: 880px) {
+    width: calc(100% - 20px);
+  }
+}
+
+/* Styles pour les titres et paragraphes */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
 }

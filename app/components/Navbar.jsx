@@ -1,3 +1,5 @@
+// components/Navbar.jsx
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -11,7 +13,7 @@ import { socialIcons } from '../config/socialIcons';
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState('light');
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 880);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleMobileToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -83,19 +85,17 @@ const Navbar = () => {
           {!isMobile &&
             socialIcons
               .filter((icon) => !icon.isMobileOnly)
-              .map((icon) => {
-                return (
-                  <a
-                    key={icon.label}
-                    href={icon.href}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className={`${styles.iconButton} ${styles.socialIcon}`}
-                  >
-                    {icon.icon}
-                  </a>
-                );
-              })}
+              .map((icon) => (
+                <a
+                  key={icon.label}
+                  href={icon.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className={`${styles.iconButton} ${styles.socialIcon}`}
+                >
+                  {icon.icon}
+                </a>
+              ))}
           {/* Mobile Menu Button and Phone Icon */}
           {isMobile && (
             <>
@@ -123,9 +123,10 @@ const Navbar = () => {
           </ul>
           <div className={styles.separator}></div>
           <div className={styles.mobileSocialIcons}>
-            {socialIcons.map((icon) => {
-              if (isMobile && !icon.isMobileOnly && icon.icon === 'FaPhone') return null;
-              return (
+            {/* Social Icons alignés horizontalement sans texte */}
+            {socialIcons
+              .filter((icon) => !icon.isMobileOnly)
+              .map((icon) => (
                 <a
                   key={icon.label}
                   href={icon.href}
@@ -134,15 +135,17 @@ const Navbar = () => {
                   className={styles.mobileSocialIcon}
                 >
                   {icon.icon}
-                  <span>{icon.label}</span>
                 </a>
-              );
-            })}
+              ))}
+            {/* Garder le bouton de téléphone uniquement sur mobile */}
+            {isMobile && (
+              <a href='tel:+33688074187' className={styles.mobileSocialIcon}>
+                <FaPhone />
+              </a>
+            )}
           </div>
           <div className={styles.mobileFooter}>
-            <p>
-              <span style={{ fontFamily: 'Helvetica, sans-serif' }}>©</span> {new Date().getFullYear()} Steven Lucas
-            </p>
+            <p>© {new Date().getFullYear()} Steven Lucas</p>
           </div>
         </div>
       )}

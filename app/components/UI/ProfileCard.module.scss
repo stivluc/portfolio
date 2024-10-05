@@ -1,0 +1,89 @@
+.profileWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .slices {
+    display: flex;
+    position: relative;
+    margin-right: -30px;
+    align-items: center;
+  
+    .slice {
+      width: 30px; /* Ajuste la largeur selon ton besoin */
+      height: 80px; /* Ajuste la hauteur selon ton besoin */
+      background-color: hsl(var(--foreground));; /* Couleur du slice */
+      border-radius: 50px 0 0 50px; /* Forme courbée */
+      position: relative;
+    }
+  
+    .slice2 {
+      width: 23px;
+      height: 70px;
+    }
+  
+    .slice3 {
+      width: 24px;
+      height: 55px;
+    }
+  }
+  
+  .profileImageContainer {
+    position: relative;
+    align-items: center;
+    z-index: 1;
+  
+    .profileBackgroundCircle {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: hsl(var(--foreground));; /* Même couleur de fond que les slices */
+      border-radius: 50%;
+      z-index: 0;
+    }
+  
+    .profileImage {
+      position: relative;
+      z-index: 1;
+  
+      img {
+        width: 80px; /* Ajuste la taille de l'image */
+        height: 80px;
+        border-radius: 50%;
+      }
+    }
+  }
+  
+  .textContainer {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    
+    h3 {
+      font-size: 1.5rem;
+      color: hsl(var(foreground)); /* Couleur du texte */
+    }
+  
+    p {
+      color: hsl(var(--secondary-foreground));
+      font-size: 1rem;
+    }
+  
+    .socialIcons {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+  
+      .icon {
+        font-size: 1.5rem;
+        color: hsl(var(--secondary-foreground));
+        transition: color 0.3s ease-in-out;
+  
+        &:hover {
+          color: #111;
+        }
+      }
+    }
+  }
+  
