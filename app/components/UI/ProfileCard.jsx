@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { FaTwitter, FaInstagram, FaDribbble } from 'react-icons/fa';
+import { FaTwitter, FaInstagram, FaDribbble, FaLinkedin, FaGithub, FaEnvelope, FaPhone } from 'react-icons/fa';
 import styles from './ProfileCard.module.scss';
+import Image from 'next/image';
 
 const ProfileCard = () => {
   return (
@@ -33,7 +34,7 @@ const ProfileCard = () => {
         >
           <div className={styles.profileBackgroundCircle}></div>
           <div className={styles.profileImage}>
-            <img src='/profile.png' alt='Profile' />
+            <Image width={90} height={90} src='/profile.png' alt='Profile' priority />
           </div>
         </motion.div>
       </div>
@@ -42,13 +43,15 @@ const ProfileCard = () => {
 
       {/* Text and Icons */}
       <div className={styles.textContainer}>
-        <h3>Andrew Scott</h3>
-        <p>Web-designer, developer</p>
-        <div className={styles.socialIcons}>
-          <FaTwitter className={styles.icon} />
-          <FaInstagram className={styles.icon} />
-          <FaDribbble className={styles.icon} />
+        <div>
+          <h3>Steven Lucas</h3>
+          <p>Full Stack Engineer</p>
         </div>
+        <p>
+          <a href='mailto:contact@stivluc.com' className={styles.email}>
+            contact@stivluc.com
+          </a>
+        </p>
       </div>
     </div>
   );

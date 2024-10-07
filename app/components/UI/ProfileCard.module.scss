@@ -7,24 +7,24 @@
   .slices {
     display: flex;
     position: relative;
-    margin-right: -30px;
+    z-index: 1;
     align-items: center;
   
     .slice {
       width: 30px; /* Ajuste la largeur selon ton besoin */
-      height: 80px; /* Ajuste la hauteur selon ton besoin */
+      height: 75px; /* Ajuste la hauteur selon ton besoin */
+      clip-path: ellipse(100% 50% at 100% 50%);
       background-color: hsl(var(--foreground));; /* Couleur du slice */
-      border-radius: 50px 0 0 50px; /* Forme courbée */
       position: relative;
     }
   
     .slice2 {
       width: 23px;
-      height: 70px;
+      height: 65px;
     }
   
     .slice3 {
-      width: 24px;
+      width: 18px;
       height: 55px;
     }
   }
@@ -36,8 +36,8 @@
   
     .profileBackgroundCircle {
       position: absolute;
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       background-color: hsl(var(--foreground));; /* Même couleur de fond que les slices */
       border-radius: 50%;
       z-index: 0;
@@ -48,8 +48,8 @@
       z-index: 1;
   
       img {
-        width: 80px; /* Ajuste la taille de l'image */
-        height: 80px;
+        width: 90px; /* Ajuste la taille de l'image */
+        height: 90px;
         border-radius: 50%;
       }
     }
@@ -57,8 +57,14 @@
   
   .textContainer {
     margin-left: 20px;
+    height: 100px;
+    background-color: hsl(var(--background));
+    z-index: 2;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    padding-top: 8px;
+    padding-bottom: 8px;
     
     h3 {
       font-size: 1.5rem;
@@ -70,19 +76,14 @@
       font-size: 1rem;
     }
   
-    .socialIcons {
-      display: flex;
-      gap: 15px;
+    .email {
+      text-decoration: none;
+      color: hsl(var(--secondary-foreground));
       margin-top: 10px;
-  
-      .icon {
-        font-size: 1.5rem;
-        color: hsl(var(--secondary-foreground));
-        transition: color 0.3s ease-in-out;
-  
-        &:hover {
-          color: #111;
-        }
+      opacity: 1;
+    
+     &:hover{
+      color: hsl(var(--primary))
       }
     }
   }

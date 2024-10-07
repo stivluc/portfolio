@@ -8,8 +8,6 @@ export default function Home() {
   return (
     <React.Fragment>
       <HeroSection />
-      <HeroSection />
-
       <ProfileCard />
     </React.Fragment>
   );
