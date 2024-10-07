@@ -14,7 +14,7 @@
     --font-heming: 'Heming', sans-serif;
 
     --background: 0 0% 97%; /* #fafafa */
-    --foreground: 222.2 47.4% 11.2%; /* #0F172A */
+    --foreground: 0, 0%, 18%; 
     --card: 0, 0%, 100%;
     --card-foreground: 222.2 47.4% 11.2%; /* #0F172A */
     --popover: 0 0% 100%; /* #FFFFFF */
@@ -22,7 +22,7 @@
     --primary: 262.1 83.3% 57.8%; /* #7C3AED */
     --primary-foreground: 210 20% 98%; /* #F9FAFB */
     --secondary: 220 14.3% 95.9%; /* #F5F8FF */
-    --secondary-foreground: 220.9, 39.3%, 11%; /* #1E293B */
+    --secondary-foreground: 0, 0%, 52%; /* #949494 */
     --muted: 220 14.3% 95.9%; /* #F5F8FF */
     --muted-foreground: 220 8.9% 46.1%; /* #64748B */
     --accent: 220 14.3% 95.9%; /* #F5F8FF */
@@ -32,7 +32,7 @@
     --border: 220 13% 91%; /* #E2E8F0 */
     --input: 220 13% 91%; /* #E2E8F0 */
     --ring: 262.1 83.3% 57.8%; /* #7C3AED */
-    --radius: 0.5rem;
+    --radius: 1rem;
     --cursor-color: #0F172A;
     --chart-1: 12 76% 61%; /* #E85D04 */
     --chart-2: 173 58% 39%; /* #2D6A4F */
@@ -80,8 +80,10 @@ body {
 
 /* Utilisation de Heming pour les h1 */
 h1 {
-  font-family: var(--font-heming), sans-serif;
+  // font-family: var(--font-heming), sans-serif;
   font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
   margin-bottom: 20px;
 }
 

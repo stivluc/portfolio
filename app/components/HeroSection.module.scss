@@ -1,201 +1,200 @@
-
 .hero {
-    position: relative;
-    padding: 100px 20px;
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  position: relative;
+  padding: 100px 20px;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  overflow: hidden;
 
-    @media (max-width: 880px) {
-      padding: 60px 20px;
-    }
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+    padding: 60px 20px;
   }
-  
-  .content {
-    display: flex;
-    align-items: center;
-    max-width: 1200px;
+}
+
+.profileCardContainer {
+  grid-column: 1 / 2;
+  align-self: start;
+
+  @media (max-width: 1200px) {
+    grid-column: 1 / -1;
     width: 100%;
-    gap: 40px;
-    animation: fadeIn 1s ease-out;
-  
-    @media (max-width: 880px) {
-      flex-direction: column;
-      text-align: center;
-      gap: 20px;
-    }
   }
-  
-  .text {
-    flex: 2;
-    max-width: 550px;
-  
-    @media (max-width: 880px) {
-      flex: none;
-    }
-  }
-  
-  .text h1 {
-    font-size: 3.8rem;
-    margin-bottom: 20px;
-    animation: slideInLeft 1s ease-out;
-  
-    @media (max-width: 1000px) {
-      font-size: 3rem;
-    }
+}
 
-    @media (max-width: 600px) {
-      font-size: 2rem;
-    }
-  }
-  
-  .text p {
-    font-size: 1.8rem;
-    line-height: 1.6;
-    animation: slideInRight 1s ease-out;
-  
-    @media (max-width: 1050px) {
-      font-size: 1.5rem;
-    }
+.mainContent {
+  grid-column: 2 / 3;
 
-    @media (max-width: 600px) {
-      font-size: 1.2rem;
-    }
+  @media (max-width: 1200px) {
+    grid-column: 1 / -1;
   }
-  
-  .imageContainer {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    animation: fadeIn 1.5s ease-out;
-  
-    @media (max-width: 880px) {
-      flex: none;
-    }
-  }
-  
-  .mainIllustration {
-    width: 400px;
-    height: 400px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-  
-    @media (max-width: 1050px) {
-      width: 300px;
-      height: 300px;
-    }
+}
 
-    @media (max-width: 880px) {
-      margin-top: 36px;
-      width: 250px;
-      height: 250px;
-    }
+.text {
+  flex: 2;
 
+  @media (max-width: 1200px) {
+    flex: none;
   }
-  
-  .illustrations {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  
-  .circle, .square {
-    position: absolute;
-    background-color: hsl(var(--primary));
-    opacity: 0.2;
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    top: 20%;
-    left: 5%;
+}
 
-    @media (max-width: 880px) {
-      width: 120px;
-      height: 120px;
-      left: 20%;
-      top: 7%;
-    }
+.job {
+  background-color: hsl(var(--foreground));
+  color: hsl(var(--primary-foreground));
+  padding: 14px 10px; /* Suppression du padding vertical */
+  border-radius: var(--radius);
+  margin-right: 5px;
+  font-size: 1.6rem;
+  display: inline-flex;
+  align-items: center; /* Centre verticalement */
+  line-height: 1; /* Évite l'espace supplémentaire */
+}
 
-    @media (max-width: 600px) {
-      width: 100px;
-      height: 100px;
-      left: 10%;
-      top: 7%;
-    }
-  }
+.name {
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--foreground)); /* Bordure primaire */
+  background-color: hsl(var(--card));
+  padding: 14px 10px; /* Suppression du padding vertical */
+  border-radius: var(--radius);
+  font-size: 1.6rem;
+  display: inline-flex;
+  align-items: center; /* Centre verticalement */
+  line-height: 1; /* Évite l'espace supplémentaire */
+}
+
+.text h1 {
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; /* Centre verticalement les spans */
   
-  .square {
+  @media (max-width: 1000px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 2rem;
+  }
+}
+
+
+.text p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: hsl(var(--secondary-foreground));
+  animation: slideInRight 1s ease-out;
+
+  @media (max-width: 1050px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+  }
+}
+
+.illustrations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.circle, .square {
+  position: absolute;
+  background-color: hsl(var(--primary));
+  opacity: 0.2;
+  animation: float 6s ease-in-out infinite;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  top: 20%;
+  left: 5%;
+
+  @media (max-width: 1200px) {
+    width: 120px;
+    height: 120px;
+    left: 15%;
+    top: 40%;
+  }
+
+  @media (max-width: 600px) {
     width: 100px;
     height: 100px;
-    top: 65%;
-    right: 55%;
+    left: 15%;
+    top: 40%;
+  }
+}
 
-    @media (max-width: 880px) {
-      width: 85px;
-      height: 85px;
-      top: 30%;
-      right: 10%;
-    }
+.square {
+  width: 100px;
+  height: 100px;
+  top: 65%;
+  right: 55%;
 
-    @media (max-width: 600px) {
-      width: 75px;
-      height: 75px;
-      top: 30%;
-      right: 15%;
-    }
+  @media (max-width: 1200px) {
+    width: 85px;
+    height: 85px;
+    top: 75%;
+    right: 18%;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+
+  @media (max-width: 600px) {
+    width: 75px;
+    height: 75px;
+    top: 85%;
+    right: 15%;
   }
-  
-  @keyframes slideInLeft {
-    from {
-      transform: translateX(-50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  @keyframes slideInRight {
-    from {
-      transform: translateX(50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
+  to {
+    opacity: 1;
   }
-  
-  @keyframes float {
-    0% {
-      transform: translateY(0) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-30px) rotate(180deg);
-    }
-    100% {
-      transform: translateY(0) rotate(360deg);
-    }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
   }
-  
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}

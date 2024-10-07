@@ -58,7 +58,7 @@ const Navbar = () => {
                   : '/WhiteLogo.svg'
               }
               alt='Logo'
-              width={isMobile ? 140 : 70}
+              width={isMobile ? 120 : 45}
               height={40}
               sizes='100vw'
               priority
@@ -146,6 +146,7 @@ const Navbar = () => {
           </div>
           <div className={styles.mobileFooter}>
             <p>© {new Date().getFullYear()} Steven Lucas</p>
+            <p>Developed with NextJS & SCSS</p>
           </div>
         </div>
       )}
