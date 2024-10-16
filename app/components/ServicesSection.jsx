@@ -23,15 +23,24 @@ const ServicesSection = () => {
 
   return (
     <section className={styles.services} id='services'>
-      <h2 className={styles.title}>Services</h2>
+      <motion.h2
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        viewport={{ once: true, amount: 0.5 }}
+        className={styles.title}
+      >
+        Services
+      </motion.h2>
       <div className={styles.cardsContainer}>
         {services.map((service, index) => (
           <motion.div
             className={styles.card}
             key={index}
             initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: index * 0.3 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.4, delay: index * 0.3 }}
+            viewport={{ once: true, amount: 0.5 }}
           >
             <img src={service.image} alt={service.title} className={styles.cardImage} />
             <h3 className={styles.cardTitle}>{service.title}</h3>
@@ -39,13 +48,20 @@ const ServicesSection = () => {
           </motion.div>
         ))}
       </div>
-      <p className={styles.ctaText}>
-        Have a specific demand? Feel free to{' '}
+      <motion.p
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        viewport={{ once: true, amount: 0.5 }}
+        className={styles.ctaText}
+      >
+        Have a specific demand? <br />
+        Feel free to{' '}
         <a href='#contact' className={styles.ctaLink}>
           send a message
         </a>
         .
-      </p>
+      </motion.p>
     </section>
   );
 };

@@ -33,7 +33,13 @@ const HeroSection = () => {
         alt='Background Image'
         className={styles.backgroundImage}
       />
-      <section className={styles.hero} id='hero'>
+      <section
+        className={styles.hero}
+        id='hero'
+        initial={{ backgroundColor: '#fafafa' }}
+        animate={{ backgroundColor: 'transparent' }}
+        transition={{ duration: 2, delay: 10 }}
+      >
         <div className={styles.profileCardContainer}>
           <ProfileCard />
         </div>
