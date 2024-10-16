@@ -25,7 +25,14 @@ const HeroSection = () => {
 
   return (
     <React.Fragment>
-      <img src='/backgroundImg.jpeg' alt='Background Image' className={styles.backgroundImage} />
+      <motion.img
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.7 }}
+        transition={{ duration: 2, delay: 0 }}
+        src='/backgroundImg.jpeg'
+        alt='Background Image'
+        className={styles.backgroundImage}
+      />
       <section className={styles.hero} id='hero'>
         <div className={styles.profileCardContainer}>
           <ProfileCard />
