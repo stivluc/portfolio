@@ -46,7 +46,7 @@ const Navbar = () => {
       <div className={styles.navContent}>
         {/* Logo */}
         <div className={styles.logo}>
-          <a href='#about'>
+          <a href='#hero'>
             <Image
               src={
                 isMobile

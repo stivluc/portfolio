@@ -11,13 +11,13 @@ const ProfileCard = () => {
           className={`${styles.slice} ${styles.slice3}`}
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
+          transition={{ delay: 0.4, duration: 0.4 }}
         />
         <motion.div
           className={`${styles.slice} ${styles.slice2}`}
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
         />
         <motion.div
           className={`${styles.slice} ${styles.slice1}`}
@@ -40,15 +40,23 @@ const ProfileCard = () => {
       </motion.div>
 
       <div className={styles.textContainer}>
-        <div>
+        <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.1, duration: 1.2 }}
+        >
           <h3>Steven Lucas</h3>
           <p>Full-Stack Engineer</p>
-        </div>
-        <p>
+        </motion.div>
+        <motion.p
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 1.2 }}
+        >
           <a href='mailto:contact@stivluc.com' className={styles.email}>
             contact@stivluc.com
           </a>
-        </p>
+        </motion.p>
       </div>
     </div>
   );

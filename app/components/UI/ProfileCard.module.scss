@@ -1,93 +1,138 @@
 .profileWrapper {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.slices {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+
+  .slice {
+    width: 30px;
+    height: 75px;
+    clip-path: ellipse(100% 50% at 100% 50%);
+    background-color: hsl(var(--foreground));
     position: relative;
   }
-  
-  .slices {
-    display: flex;
-    position: relative;
-    z-index: 1;
-    align-items: center;
-  
+
+  .slice2 {
+    width: 23px;
+    height: 65px;
+  }
+
+  .slice3 {
+    width: 18px;
+    height: 55px;
+  }
+
+  @media (max-width: 600px) {
+    /* Réduction de 12% */
     .slice {
-      width: 30px; /* Ajuste la largeur selon ton besoin */
-      height: 75px; /* Ajuste la hauteur selon ton besoin */
-      clip-path: ellipse(100% 50% at 100% 50%);
-      background-color: hsl(var(--foreground));; /* Couleur du slice */
-      position: relative;
+      width: 26.5px;
+      height: 66px;
     }
-  
+
     .slice2 {
-      width: 23px;
-      height: 65px;
+      width: 20px;
+      height: 57px;
     }
-  
+
     .slice3 {
-      width: 18px;
-      height: 55px;
+      width: 15.8px;
+      height: 48px;
     }
   }
-  
-  .profileImageContainer {
+}
+
+.profileImageContainer {
+  position: relative;
+  align-items: center;
+  z-index: 1;
+
+  .profileBackgroundCircle {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-color: hsl(var(--foreground));
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .profileImage {
     position: relative;
-    align-items: center;
     z-index: 1;
-  
-    .profileBackgroundCircle {
-      position: absolute;
+
+    img {
       width: 90px;
       height: 90px;
-      background-color: hsl(var(--foreground));; /* Même couleur de fond que les slices */
       border-radius: 50%;
-      z-index: 0;
-    }
-  
-    .profileImage {
-      position: relative;
-      z-index: 1;
-  
-      img {
-        width: 90px; /* Ajuste la taille de l'image */
-        height: 90px;
-        border-radius: 50%;
-      }
     }
   }
-  
-  .textContainer {
-    margin-left: 20px;
-    height: 100px;
-    background-color: hsl(var(--background));
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    
-    
+
+  @media (max-width: 600px) {
+    .profileBackgroundCircle {
+      width: 79px;
+      height: 79px;
+    }
+
+    .profileImage img {
+      width: 79px;
+      height: 79px;
+    }
+  }
+}
+
+.textContainer {
+  margin-left: 20px;
+  height: 100px;
+  background-color: hsl(var(--background));
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 0 8px 16px;
+
+  h3 {
+    font-size: 1.5rem;
+    white-space: nowrap;
+    color: hsl(var(--foreground));
+  }
+
+  p {
+    font-size: 1rem;
+    color: hsl(var(--secondary-foreground));
+    letter-spacing: -0.04em;
+  }
+
+  .email {
+    text-decoration: none;
+    color: hsl(var(--secondary-foreground));
+    margin-top: 10px;
+    opacity: 1;
+
+    &:hover {
+      color: hsl(var(--primary));
+    }
+  }
+
+  @media (max-width: 600px) {
+    margin-left: 10px;
+    height: 88px;
+    padding: 7px 0 7px 14px;
+
     h3 {
-      font-size: 1.5rem;
-      white-space: nowrap;
-      color: hsl(var(--foreground)); /* Couleur du texte */
+      font-size: 1.32rem; /* Réduction de 12% */
     }
-  
+
     p {
-      font-size: 1rem;
-      color: hsl(var(--secondary-foreground));
-      letter-spacing: -0.04em;
+      font-size: 0.88rem; /* Réduction de 12% */
     }
-  
+
     .email {
-      text-decoration: none;
-      color: hsl(var(--secondary-foreground));
-      margin-top: 10px;
-      opacity: 1;
-    
-     &:hover{
-      color: hsl(var(--primary))
-      }
+      font-size: 0.88rem; /* Réduction de 12% */
     }
   }
-  
+}
