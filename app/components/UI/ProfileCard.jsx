@@ -39,7 +39,12 @@ const ProfileCard = () => {
         </div>
       </motion.div>
 
-      <div className={styles.textContainer}>
+      <motion.div
+        initial={{ backgroundColor: '#f7f8f9' }}
+        animate={{ backgroundColor: 'transparent' }}
+        transition={{ delay: 1 }}
+        className={styles.textContainer}
+      >
         <motion.div
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -57,7 +62,7 @@ const ProfileCard = () => {
             contact@stivluc.com
           </a>
         </motion.p>
-      </div>
+      </motion.div>
     </div>
   );
 };

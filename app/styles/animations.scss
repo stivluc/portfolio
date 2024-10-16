@@ -1,0 +1,46 @@
+.fadeInAndFloat {
+    animation: fadeIn 2s ease-in forwards,  float 6s ease-in-out infinite;
+}
+
+.fadeIn {
+    animation: fadeIn 2s ease-in forwards;
+}
+
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.greenGlow {
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.2;
+    }
+  }
+  
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-30px) rotate(180deg);
+    }
+    100% {
+      transform: translateY(0) rotate(360deg);
+    }
+  }
+  
+  @keyframes greenGlow {
+    from {
+      box-shadow: 0 0 0px #00FF00, 0 0 0px #00FF00;
+    }
+    to {
+      box-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00;
+    }
+  }

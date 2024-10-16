@@ -1,8 +1,7 @@
 import localFont from 'next/font/local';
-import './globals.scss';
+import './styles/globals.scss';
 import Navbar from './components/Navbar';
 import dynamic from 'next/dynamic';
-import { Source_Sans_3 } from 'next/font/google';
 
 const heming = localFont({
   src: './fonts/Heming.ttf',

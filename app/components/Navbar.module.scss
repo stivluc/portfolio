@@ -6,7 +6,7 @@
   width: calc(100% - 40px);
   max-width: 1100px; /* Largeur maximale */
   margin: 0 auto; /* Centrage */
-  border-radius: calc(var(--radius) + 4px);
+  border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
   background-color: hsla(var(--card), 0.8); /* Moins transparent */
   backdrop-filter: blur(10px); 
