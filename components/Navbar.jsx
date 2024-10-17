@@ -1,14 +1,12 @@
-// components/Navbar.jsx
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { FaLinkedin, FaGithub, FaPhone, FaSun, FaMoon, FaBars, FaTimes, FaEnvelope } from 'react-icons/fa';
+import { FaPhone, FaBars, FaTimes } from 'react-icons/fa';
 import styles from './Navbar.module.scss';
 import Image from 'next/image';
-import { navSections } from '../config/navSections';
-import { toKebabCase } from '../utils/toKebabCase';
-import { socialIcons } from '../config/socialIcons';
+import { navSections } from '@/config/navSections';
+import { toKebabCase } from '@/utils/toKebabCase';
+import { socialIcons } from '@/config/socialIcons';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -75,10 +73,6 @@ const Navbar = () => {
         </ul>
         {/* Right Side Icons */}
         <div className={styles.rightIcons}>
-          {/* Theme Switcher */}
-          <button onClick={toggleTheme} className={`${styles.iconButton} ${styles.themeSwitcher}`}>
-            {theme === 'light' ? <FaSun /> : <FaMoon />}
-          </button>
           {/* Separator */}
           <div className={styles.separator}></div>
           {/* Social Icons */}

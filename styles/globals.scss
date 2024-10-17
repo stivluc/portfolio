@@ -1,5 +1,6 @@
 @import './animations.scss';
 @import './buttons.scss';
+@import './typography.scss';
 
 /* Reset styles */
 * {
@@ -13,6 +14,8 @@
   :root {
     --font-source-sans: 'Source Sans 3', sans-serif;
     --font-heming: 'Heming', sans-serif;
+
+    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
     --background: 0 0% 98%; /* #fafafa */
     --foreground: 0, 0%, 18%; 
@@ -35,11 +38,6 @@
     --ring: 262.1 83.3% 57.8%; /* #7C3AED */
     --radius: 1rem;
     --cursor-color: #0F172A;
-    --chart-1: 12 76% 61%; /* #E85D04 */
-    --chart-2: 173 58% 39%; /* #2D6A4F */
-    --chart-3: 197 37% 24%; /* #1E3A8A */
-    --chart-4: 43 74% 66%; /* #F59E0B */
-    --chart-5: 27 87% 67%; /* #FB923C */
   }
 
   .dark {
@@ -63,53 +61,5 @@
     --input: 215 27.9% 16.9%; /* #1E293B */
     --ring: 263.4 70% 50.4%; /* #8B5CF6 */
     --cursor-color: #8B5CF6;
-    --chart-1: 220 70% 50%; /* #3B82F6 */
-    --chart-2: 160 60% 45%; /* #10B981 */
-    --chart-3: 30 80% 55%; /* #F97316 */
-    --chart-4: 280 65% 60%; /* #A855F7 */
-    --chart-5: 340 75% 55%; /* #EC4899 */
   }
 }
-
-/* Application des polices */
-html,
-body {
-  font-family: var(--font-source-sans), sans-serif;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-}
-
-/* Utilisation de Heming pour les h1 */
-h1 {
-  // font-family: var(--font-heming), sans-serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-h2, h3, h4, h5, h6 {
-  font-family: var(--font-heming), sans-serif;
-
-}
-
-p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-
-/* Autres styles globaux... */
-
-/* main-content déjà défini */
-.main-content {
-  padding-top: 100px; /* Align with navbar height */
-  width: calc(100% - 40px);
-  max-width: 1100px; /* Largeur maximale */
-  margin: 0 auto;
-
-  @media (max-width: 880px) {
-    width: calc(100% - 20px);
-  }
-}
-

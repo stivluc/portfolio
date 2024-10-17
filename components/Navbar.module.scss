@@ -3,25 +3,24 @@
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 40px);
-  max-width: 1100px; /* Largeur maximale */
   margin: 0 auto; /* Centrage */
+  width: calc(100% - 40px);
+  max-width: 1100px;
   border-radius: var(--radius);
   border: 1px solid hsl(var(--border));
-  background-color: hsla(var(--card), 0.8); /* Moins transparent */
+  background-color: hsla(var(--card), 0.8);
   backdrop-filter: blur(10px); 
   color: hsl(var(--card-foreground));
   z-index: 100;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   animation: slideDown 0.5s ease-out forwards;
-  opacity: 0;
-  overflow: hidden;
   height: 65px;
+  opacity: 0;
   transition: height 0.3s ease-out;
-  animation-delay: 2s;
+  animation-delay: 2s; // Make it appear after two seconds
 
   &.open {
-    height: 550px; /* Augmentation pour éviter la troncature */
+    height: 550px;
   }
 
   @media (max-width: 880px) {
@@ -53,7 +52,7 @@
 .logo {
   a {
     display: inline-block;
-    margin-right: 16px;
+    margin-right: 20px;
 
     &:hover svg {
       fill: hsl(var(--primary));
@@ -101,13 +100,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     background: none;
     border: none;
     color: hsl(var(--foreground));
     font-size: 20px;
-    // margin-left: 10px;
     cursor: pointer;
     border-radius: 50%;
     transition: background-color 0.2s, color 0.2s;

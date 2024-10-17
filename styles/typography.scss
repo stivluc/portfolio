@@ -1,0 +1,39 @@
+/* Application des polices */
+html,
+body {
+  font-family: var(--font-source-sans), sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 3.8rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 20px;
+
+    @media (max-width: 1000px) {
+      font-size: 3.2rem;
+    }
+  
+    @media (max-width: 600px) {
+      font-size: 2.2rem;
+    }
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-heming), sans-serif;
+
+}
+
+h2 {
+  
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
