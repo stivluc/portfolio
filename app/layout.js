@@ -4,12 +4,12 @@ import Navbar from '@/components/Navbar';
 import '@/styles/globals.scss';
 
 const heming = localFont({
-  src: './fonts/Heming.ttf',
+  src: '../fonts/Heming.ttf',
   display: 'swap',
   variable: '--font-heming',
 });
 
-const sourceSans3 = localFont({ src: './fonts/Manrope.ttf', display: 'swap', variable: '--font-source-sans' });
+const sourceSans3 = localFont({ src: '../fonts/Manrope.ttf', display: 'swap', variable: '--font-source-sans' });
 
 export const metadata = {
   title: `Steven Lucas' Portfolio`,

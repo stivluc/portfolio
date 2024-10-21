@@ -1,139 +1,171 @@
-.services {
+.servicesContainer {
+  padding: 80px 20px;
+  margin: auto;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 1200px) {
     padding: 80px 20px;
-    color: hsl(var(--foreground));
-    background-color: hsl(var(--background));
-    position: relative;
-    overflow: hidden;
-    display: flex;
+  }
+
+  @media (max-width: 600px) {
+    padding: 40px 15px;
+  }
+}
+
+.services {
+  max-width: 1100px;
+}
+
+.title {
+  text-align: left;
+  width: 100%;
+  position: relative;
+
+  span {
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.06;
+    top: 1rem;
+    left: 2rem;
+
+    @media (max-width: 1000px) {
+      font-size: 100px;
+    }
+  }
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+
+  @media (max-width: 1000px) {
     flex-direction: column;
+    gap: 10px;
     align-items: center;
-  
-    @media (max-width: 1200px) {
-      padding: 60px 20px;
-    }
-  
-    @media (max-width: 600px) {
-      padding: 40px 15px;
-    }
   }
-  
-  .title {
-    font-size: 5rem;
-    margin-bottom: 60px;
-    text-align: left;
-    width: 100%;
-  
-    @media (max-width: 1000px) {
-      font-size: 4rem;
-      margin-bottom: 40px;
-    }
-  
-    @media (max-width: 600px) {
-      font-size: 3rem;
-      margin-bottom: 30px;
-    }
+}
+
+.card {
+  background-color: hsla(var(--background), 0.8);
+  color: hsl(var(--foreground));
+  border-radius: var(--radius);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 350px;
+  text-align: center;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-10px);
   }
-  
-  .cardsContainer {
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-  
-    @media (max-width: 1000px) {
-      flex-direction: column;
-      gap: 10px;
-      align-items: center;
-    }
+
+  @media (max-width: 1000px) {
+    max-width: 80%;
+    margin-bottom: 30px;
+
+    position: sticky;
+    top: 0;
   }
-  
-  .card {
-    background-color: hsla(var(--background), 0.8);
+
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
+}
+
+.card:nth-child(1) {
+  border: 1px solid hsla(var(--primary), 0.5);
+  background-color: hsla(var(--primary), 0.1);
+}
+
+.card:nth-child(2) {
+  border: 1px solid hsla(var(--destructive), 0.5);
+  background-color: hsla(var(--destructive), 0.1);
+}
+
+.card:nth-child(3) {
+  border: 1px solid hsla(var(--chart-1), 0.5);
+  background-color: hsla(var(--chart-1), 0.1);
+}
+
+.cardImage {
+  width: auto;
+  height: 200px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  font-size: 1.8rem;
+  margin: 20px 0 10px;
+
+  @media (max-width: 1000px) {
+    font-size: 1.6rem;
+    margin: 15px 0 8px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1.4rem;
+    margin: 10px 0 6px;
+  }
+}
+
+.cardDescription {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: hsl(var(--secondary-foreground));
+
+  @media (max-width: 1000px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+}
+
+.ctaText {
+  margin-top: 60px;
+  font-size: 1.2rem;
+  color: hsl(var(--secondary-foreground));
+  text-align: center;
+
+  @media (max-width: 1000px) {
+    font-size: 1.1rem;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    margin-top: 30px;
+  }
+}
+
+.ctaLink {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  border-bottom: 1px solid hsl(var(--primary));
+  transition: color 0.3s, border-color 0.3s;
+
+  &:hover {
     color: hsl(var(--foreground));
-    border-radius: var(--radius);
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    max-width: 300px;
-    text-align: center;
-    padding: 20px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s;
-  
-    &:hover {
-      transform: translateY(-10px);
-    }
-  
-    @media (max-width: 1000px) {
-      max-width: 80%;
-      margin-bottom: 30px;
-    }
-  
-    @media (max-width: 600px) {
-      max-width: 100%;
-    }
+    border-color: hsl(var(--foreground));
   }
-  
-  .cardImage {
-    width: auto;
-    height: 200px;
-    border-radius: var(--radius);
-    margin-bottom: 20px;
-  }
-  
-  .cardTitle {
-    font-size: 1.8rem;
-    margin: 20px 0 10px;
-  
-    @media (max-width: 1000px) {
-      font-size: 1.6rem;
-      margin: 15px 0 8px;
-    }
-  
-    @media (max-width: 600px) {
-      font-size: 1.4rem;
-      margin: 10px 0 6px;
-    }
-  }
-  
-  .cardDescription {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: hsl(var(--secondary-foreground));
-  
-    @media (max-width: 1000px) {
-      font-size: 1.1rem;
-    }
-  
-    @media (max-width: 600px) {
-      font-size: 1rem;
-    }
-  }
-  
-  .ctaText {
-    margin-top: 60px;
-    font-size: 1.2rem;
-    color: hsl(var(--secondary-foreground));
-    text-align: center;
-  
-    @media (max-width: 1000px) {
-      font-size: 1.1rem;
-      margin-top: 40px;
-    }
-  
-    @media (max-width: 600px) {
-      font-size: 1rem;
-      margin-top: 30px;
-    }
-  }
-  
-  .ctaLink {
-    color: hsl(var(--primary));
-    text-decoration: none;
-    border-bottom: 1px solid hsl(var(--primary));
-    transition: color 0.3s, border-color 0.3s;
-  
-    &:hover {
-      color: hsl(var(--foreground));
-      border-color: hsl(var(--foreground));
-    }
-  }
-  
+}
+
+.questionsTitle {
+  max-width: 1100px;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
