@@ -24,6 +24,7 @@
 
 .title {
   text-align: left;
+  margin-bottom: 60px;
   width: 100%;
   position: relative;
 
@@ -36,6 +37,10 @@
 
     @media (max-width: 1000px) {
       font-size: 100px;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 70px;
     }
   }
 }
@@ -101,6 +106,16 @@
   height: 200px;
   border-radius: var(--radius);
   margin-bottom: 20px;
+
+  @media (max-width: 1000px) {
+    height: 150px;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 600px) {
+    height: 120px;
+    margin-bottom: 10px;
+  }
 }
 
 .cardTitle {

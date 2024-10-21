@@ -1,0 +1,17 @@
+.techLogo {
+  flex: 0 0 auto;
+  text-align: center;
+  margin-right: 30px;
+
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+
+  .techName {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    color: hsl(var(--secondary-foreground));
+  }
+}
