@@ -10,6 +10,7 @@ import {
 import TechMarquee from './UI/TechMarquee';
 import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
+import { FaDownload, FaCheck, FaArrowDown } from 'react-icons/fa';
 
 const ResumeSection = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -117,23 +118,45 @@ const ResumeSection = () => {
             transition={{ duration: 0.2 }}
             className={styles.certificationsGrid}
           >
-            {certificationsToShow.map((cert, index) => (
-              <motion.div
-                className={styles.certItem}
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.1 + 0.3 * (index - 1) }}
-              >
-                <Image src={cert.src} alt={cert.title} className={styles.certLogo} width={50} height={50} />
-                <div className={styles.certInfo}>
-                  <h4 className={styles.certTitle}>{cert.title}</h4>
-                  <p className={styles.certIssuer}>
-                    {cert.issuer} | {cert.year}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            {certificationsToShow.map((cert, index) => {
+              const certContent = (
+                <>
+                  <Image src={cert.src} alt={cert.title} className={styles.certLogo} width={50} height={50} />
+                  <div className={styles.certInfo}>
+                    <h4 className={styles.certTitle}>{cert.title}</h4>
+                    <p className={styles.certIssuer}>
+                      {cert.issuer} | {cert.year}
+                    </p>
+                  </div>
+                </>
+              );
+
+              return cert.href ? (
+                <motion.a
+                  href={cert.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className={`${styles.certItem} ${styles.clickableCertItem}`}
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.1 + 0.3 * (index - 1) }}
+                  style={{ textDecoration: 'none' }}
+                >
+                  {certContent}
+                </motion.a>
+              ) : (
+                <motion.div
+                  className={styles.certItem}
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut', delay: 0.2 * (index - 1) }}
+                >
+                  {certContent}
+                </motion.div>
+              );
+            })}
           </motion.div>
           {!showAllCertifications && allCertifications.length > 3 && (
             <button onClick={() => setShowAllCertifications(true)} className={styles.showMoreButton}>
@@ -157,9 +180,7 @@ const ResumeSection = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true, amount: 0.5 }}
         >
-          <a href='/resume.pdf' download className={styles.downloadButton}>
-            Download Resume (PDF)
-          </a>
+          <button className={styles.downloadButton}>Download Resume (PDF)</button>
         </motion.div>
       </div>
     </section>

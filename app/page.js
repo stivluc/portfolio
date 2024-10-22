@@ -1,6 +1,7 @@
 'use client';
 
 import HeroSection from '@/components/HeroSection';
+import ProjectsSection from '@/components/ProjectsSection';
 import ResumeSection from '@/components/ResumeSection';
 import ServicesSection from '@/components/ServicesSection';
 import React from 'react';
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection />
       <ServicesSection />
       <ResumeSection />
+      <ProjectsSection />
     </React.Fragment>
   );
 }
