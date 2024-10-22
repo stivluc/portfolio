@@ -184,27 +184,20 @@
   }
 }
 
-.techStackText {
-  text-align: center;
-  width: 100%;
-  font-size: 1rem;
-  color: hsl(var(--secondary-foreground));
-  margin-bottom: 40px;
-}
-
 .certificationsGrid {
   display: flex;
   flex-direction: column;
 
   @media (min-width: 600px) {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    row-gap: 0px;
   }
 }
 
 .certItem {
-  background-color: hsla(var(--background), 0.8);
+  background-color: hsla(var(--card), 0.8);
   padding: 12px 24px;
   border-radius: var(--radius);
   display: flex;
@@ -212,10 +205,6 @@
   margin-bottom: 20px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .certLogo {
@@ -233,6 +222,10 @@
   font-size: 1.2rem;
   margin-bottom: 5px;
   color: hsl(var(--foreground));
+
+  @media (max-width: 1000px) {
+    font-size: 1rem;
+  }
 }
 
 .certIssuer {
@@ -240,10 +233,16 @@
   color: hsl(var(--secondary-foreground));
 }
 
+.downloadButtonText {
+  margin-top: -20px;
+  text-align: center;
+  color: hsl(var(--secondary-foreground));
+}
+
 .downloadButtonContainer {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .downloadButton {

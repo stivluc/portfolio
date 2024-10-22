@@ -1,5 +1,6 @@
 .servicesContainer {
   padding: 80px 20px;
+  width: 100%; // Ensure the container spans the full width
   margin: auto;
   color: hsl(var(--foreground));
   background-color: hsl(var(--background));
@@ -19,6 +20,7 @@
 }
 
 .services {
+  width: 100%; // Ensure the inner content spans the full width
   max-width: 1100px;
 }
 
@@ -50,7 +52,17 @@
   gap: 40px;
   justify-content: center;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1000px) and (min-width: 600px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'card1 card2'
+      'card3 card3';
+    gap: 20px;
+    justify-items: center;
+  }
+
+  @media (max-width: 600px) {
     flex-direction: column;
     gap: 10px;
     align-items: center;
@@ -73,12 +85,8 @@
     transform: translateY(-10px);
   }
 
-  @media (max-width: 1000px) {
-    max-width: 80%;
-    margin-bottom: 30px;
-
-    position: sticky;
-    top: 0;
+  @media (max-width: 1000px) and (min-width: 600px) {
+    width: 100%;
   }
 
   @media (max-width: 600px) {
@@ -86,17 +94,27 @@
   }
 }
 
+/* Assign grid areas to cards */
 .card:nth-child(1) {
+  @media (max-width: 1000px) and (min-width: 600px) {
+    grid-area: card1;
+  }
   border: 1px solid hsla(var(--primary), 0.5);
   background-color: hsla(var(--primary), 0.1);
 }
 
 .card:nth-child(2) {
+  @media (max-width: 1000px) and (min-width: 600px) {
+    grid-area: card2;
+  }
   border: 1px solid hsla(var(--destructive), 0.5);
   background-color: hsla(var(--destructive), 0.1);
 }
 
 .card:nth-child(3) {
+  @media (max-width: 1000px) and (min-width: 600px) {
+    grid-area: card3;
+  }
   border: 1px solid hsla(var(--chart-1), 0.5);
   background-color: hsla(var(--chart-1), 0.1);
 }
@@ -177,10 +195,8 @@
 }
 
 .questionsTitle {
-  max-width: 1100px;
-  text-align: left;
   width: 100%;
-  position: relative;
+  text-align: left;
   margin-top: 50px;
   margin-bottom: 30px;
 }

@@ -1,17 +1,29 @@
 .techLogo {
   flex: 0 0 auto;
   text-align: center;
-  margin-right: 30px;
+  margin-right: 50px;
 
-  img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
+  @media (max-width: 768px) {
+    margin-right: 30px;
   }
 
   .techName {
     font-size: 0.8rem;
     margin-top: 5px;
     color: hsl(var(--secondary-foreground));
+  }
+}
+
+.text {
+  text-align: center;
+  margin-top: 16px;
+  width: 100%;
+  font-size: 1rem;
+  color: hsl(var(--secondary-foreground));
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+    text-align: left;
+    padding-top: 110px;
   }
 }

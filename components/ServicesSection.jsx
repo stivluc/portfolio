@@ -101,11 +101,11 @@ const ServicesSection = () => {
         >
           Common questions
         </motion.h3>
-        <motion.div>
+        <div>
           {questions.map((q, i) => (
             <FAQItem {...q} key={i} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
