@@ -24,6 +24,44 @@ const HeroSection = () => {
 
   let wordIndex = 0;
 
+  // Custom smooth scroll function with easing
+  const smoothScrollTo = (targetY, duration = 800) => {
+    const startY = window.pageYOffset;
+    const distanceY = targetY - startY;
+    let startTime = null;
+
+    // Easing function: easeOutQuad
+    const easeOutQuad = (t) => t * (2 - t);
+
+    const animationFrame = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const easeProgress = easeOutQuad(progress);
+
+      window.scrollTo(0, startY + distanceY * easeProgress);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animationFrame);
+      }
+    };
+
+    requestAnimationFrame(animationFrame);
+  };
+
+  // Function to handle smooth scrolling and offset
+  const handleCTAClick = (event) => {
+    event.preventDefault();
+    const element = document.getElementById('services');
+    if (element) {
+      const yOffset = -80; // Adjust for navbar height
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      // Use custom smoothScrollTo function
+      smoothScrollTo(y, 800); // Adjust duration as needed
+    }
+  };
+
   return (
     <React.Fragment>
       <motion.img
@@ -95,6 +133,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 1.8 }}
             href='#services'
             className={styles.ctaButton}
+            onClick={handleCTAClick}
           >
             See what I can do <FiArrowUpRight className={styles.arrowIcon} />
           </motion.a>

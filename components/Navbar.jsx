@@ -39,6 +39,31 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [theme]);
 
+  // Custom smooth scroll function with easing
+  const smoothScrollTo = (targetY, duration = 600) => {
+    const startY = window.pageYOffset;
+    const distanceY = targetY - startY;
+    let startTime = null;
+
+    // Easing function: easeOutQuad
+    const easeOutQuad = (t) => t * (2 - t);
+
+    const animationFrame = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const easeProgress = easeOutQuad(progress);
+
+      window.scrollTo(0, startY + distanceY * easeProgress);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animationFrame);
+      }
+    };
+
+    requestAnimationFrame(animationFrame);
+  };
+
   // Function to handle smooth scrolling and offset
   const handleNavLinkClick = (event, section) => {
     event.preventDefault();
@@ -48,10 +73,8 @@ const Navbar = () => {
       const yOffset = -80; // Adjust for navbar height
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-      window.scrollTo({
-        top: y,
-        behavior: 'smooth',
-      });
+      // Use custom smoothScrollTo function
+      smoothScrollTo(y, 800); // Adjust duration as needed
     }
   };
 
@@ -60,7 +83,7 @@ const Navbar = () => {
       <div className={styles.navContent}>
         {/* Logo */}
         <div className={styles.logo}>
-          <a href='#hero'>
+          <a href='#hero' onClick={(e) => handleNavLinkClick(e, 'Hero')}>
             <Image
               src={
                 isMobile
