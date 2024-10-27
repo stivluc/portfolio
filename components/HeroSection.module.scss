@@ -6,7 +6,7 @@
   max-width: 1100px;
   gap: 5rem;
   row-gap: 0rem;
-  padding: 80px 20px 80px; 
+  padding: 80px 20px 80px;
   color: hsl(var(--foreground));
   overflow: hidden;
 
@@ -22,7 +22,7 @@
   top: 0;
   width: 100%;
   height: auto;
-  min-height: calc(100% + 80px); // 100% plus Navbar gap
+  min-height: calc(100vh + 80px); // Adjusted to use viewport height
   object-fit: cover;
   z-index: 0;
 }
@@ -57,9 +57,10 @@
   }
 }
 
-.job, .name {
+.job,
+.name {
   z-index: 10;
-  padding: 12px 16px; 
+  padding: 12px 16px;
   border-radius: var(--radius);
   font-size: 1.6rem;
   box-shadow: var(--box-shadow);
@@ -68,15 +69,14 @@
   @media (max-width: 1000px) {
     font-size: 1.4rem;
     border-radius: 12px;
-    padding: 10px 16px; 
+    padding: 10px 16px;
   }
 
   @media (max-width: 600px) {
     font-size: 1.2rem;
     border-radius: 8px;
-    padding: 6px 12px; 
+    padding: 6px 12px;
   }
-
 }
 
 .job {
@@ -90,7 +90,6 @@
   border: 1px solid hsl(var(--foreground));
 }
 
-
 .text h1 span {
   margin-right: 10px;
 }
@@ -100,11 +99,10 @@
 
   @media (max-width: 1200px) {
     grid-column: 1 / -1;
-    order: 4; 
-    margin-top: -1.5rem; 
+    order: 4;
+    margin-top: -1.5rem;
   }
 }
-
 
 .declaration {
   max-width: 881px;
@@ -147,18 +145,19 @@
     color: hsl(var(--primary));
   }
 
-  .arrow {
-    margin-left: 8px;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover .arrow {
-    transform: rotate(140deg);
-  }
-
   @media (max-width: 1200px) {
     grid-column: 1 / -1;
     margin-top: 1rem;
+  }
+}
+
+.arrowIcon {
+  margin-left: 8px;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+
+  .ctaButton:hover & {
+    transform: rotate(135deg);
   }
 }
 
@@ -171,7 +170,7 @@
   @media (max-width: 1200px) {
     grid-column: 1 / -1;
     margin-top: -0.5rem;
-    order: 2; 
+    order: 2;
   }
 
   @media (max-width: 600px) {
@@ -193,10 +192,10 @@
 .dot {
   width: 8px;
   height: 8px;
-  background-color: #00FF00; /* Vert très flashy */
+  background-color: #00ff00; /* Bright green */
   border-radius: 50%;
   margin-right: 12px;
-  box-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00; /* Effet de glow */
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Glow effect */
 
   @media (max-width: 600px) {
     width: 6px;
@@ -216,7 +215,8 @@
   z-index: 1;
 }
 
-.circle, .square {
+.circle,
+.square {
   position: absolute;
   background-color: hsl(var(--primary));
   opacity: 0.2;

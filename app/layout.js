@@ -16,6 +16,13 @@ export const metadata = {
   description: '',
 };
 
+/** @type {import("next").Viewport} */
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  shrinkToFit: false,
+};
+
 const AnimatedCursor = dynamic(() => import('react-animated-cursor'), {
   ssr: false,
 });

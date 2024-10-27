@@ -39,6 +39,22 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [theme]);
 
+  // Function to handle smooth scrolling and offset
+  const handleNavLinkClick = (event, section) => {
+    event.preventDefault();
+    setMobileOpen(false); // Close mobile menu if open
+    const element = document.getElementById(toKebabCase(section));
+    if (element) {
+      const yOffset = -80; // Adjust for navbar height
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <nav className={`${styles.navbar} ${mobileOpen ? styles.open : ''}`}>
       <div className={styles.navContent}>
@@ -67,7 +83,9 @@ const Navbar = () => {
         <ul className={styles.desktopMenu}>
           {navSections.map((section) => (
             <li key={section}>
-              <a href={`#${toKebabCase(section)}`}>{section}</a>
+              <a href={`#${toKebabCase(section)}`} onClick={(e) => handleNavLinkClick(e, section)}>
+                {section}
+              </a>
             </li>
           ))}
         </ul>
@@ -109,7 +127,7 @@ const Navbar = () => {
           <ul>
             {navSections.map((section) => (
               <li key={section}>
-                <a href={`#${toKebabCase(section)}`} onClick={handleMobileToggle}>
+                <a href={`#${toKebabCase(section)}`} onClick={(e) => handleNavLinkClick(e, section)}>
                   {section}
                 </a>
               </li>
@@ -117,7 +135,7 @@ const Navbar = () => {
           </ul>
           <div className={styles.separator}></div>
           <div className={styles.mobileSocialIcons}>
-            {/* Social Icons alignés horizontalement sans texte */}
+            {/* Social Icons aligned horizontally without text */}
             {socialIcons
               .filter((icon) => !icon.isMobileOnly)
               .map((icon) => (
@@ -131,7 +149,7 @@ const Navbar = () => {
                   {icon.icon}
                 </a>
               ))}
-            {/* Garder le bouton de téléphone uniquement sur mobile */}
+            {/* Keep the phone button only on mobile */}
             {isMobile && (
               <a href='tel:+33688074187' className={styles.mobileSocialIcon}>
                 <FaPhone />

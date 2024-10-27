@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './HeroSection.module.scss';
 import ProfileCard from './UI/ProfileCard';
 import { motion } from 'framer-motion';
+import { FiArrowUpRight } from 'react-icons/fi';
 
 const HeroSection = () => {
   const sentenceParts = [
@@ -48,7 +49,7 @@ const HeroSection = () => {
             <h1>
               {sentenceParts.map((part, index) => {
                 if (part.isLineBreak) {
-                  return <div key={`br-${index}`} style={{ width: '100%' }}></div>; // Forcer un saut de ligne
+                  return <div key={`br-${index}`} style={{ width: '100%' }}></div>; // Force a line break
                 }
                 const delay = 0.5 + wordIndex * 0.1;
                 wordIndex += 1;
@@ -95,7 +96,7 @@ const HeroSection = () => {
             href='#services'
             className={styles.ctaButton}
           >
-            See what I can do <span className={styles.arrow}>↗</span>
+            See what I can do <FiArrowUpRight className={styles.arrowIcon} />
           </motion.a>
         </div>
 
