@@ -1,23 +1,14 @@
-// ProjectsSection.module.scss
+/* ProjectsSection.module.scss */
+
 .projectsContainer {
   padding: 80px 20px;
   width: 100%;
   margin: auto;
   color: hsl(var(--foreground));
   background-color: hsl(var(--background));
-  position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @media (max-width: 1200px) {
-    padding: 80px 20px;
-  }
-
-  @media (max-width: 600px) {
-    padding: 40px 15px;
-  }
 }
 
 .projects {
@@ -29,7 +20,7 @@
   text-align: left;
   width: 100%;
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 
   span {
     position: absolute;
@@ -48,73 +39,101 @@
   }
 }
 
+.introText {
+  margin-bottom: 30px;
+  margin-top: 70px;
+  font-size: 1.2rem;
+  color: hsl(var(--secondary-foreground));
+
+  @media (max-width: 1000px) {
+    margin-top: 50px;
+    margin-bottom: 35px;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+}
+
 .projectsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
-
-  @media (max-width: 600px) {
-    gap: 20px;
-  }
 }
 
 .projectCard {
-  background-color: hsla(var(--background), 0.8);
+  background-color: hsl(var(--card));
   color: hsl(var(--foreground));
   border-radius: var(--radius);
   box-shadow: var(--box-shadow);
   overflow: hidden;
   text-align: center;
-  padding: 20px;
-  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
+  z-index: 1;
+
+  &.clickable {
+    cursor: pointer;
+  }
 
   &:hover {
-    transform: translateY(-10px);
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    z-index: 10;
   }
+}
 
-  @media (max-width: 600px) {
-    padding: 15px;
-  }
+.projectLinkWrapper {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imageWrapper {
+  width: 100%;
+  overflow: hidden;
 }
 
 .projectImage {
   width: 100%;
   height: auto;
-  border-radius: var(--radius);
-  margin-bottom: 20px;
 }
 
 .projectTitle {
   font-size: 1.8rem;
   margin: 20px 0 10px;
-
-  @media (max-width: 600px) {
-    font-size: 1.6rem;
-    margin: 15px 0 8px;
-  }
 }
 
 .projectDescription {
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.4;
   color: hsl(var(--secondary-foreground));
-
-  @media (max-width: 600px) {
-    font-size: 1rem;
-  }
+  padding: 0 15px;
+  flex-grow: 0;
+  margin-bottom: 20px;
 }
 
-.projectLink {
-  display: inline-block;
-  margin-top: 20px;
+.projectLink,
+.projectNotOnline {
+  margin: auto 1.5rem 16px;
   padding: 10px 20px;
   color: hsl(var(--primary));
   border: 1px solid hsl(var(--primary));
   border-radius: var(--radius);
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
 
+.projectLink {
   &:hover {
     background-color: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
@@ -122,22 +141,56 @@
 }
 
 .projectNotOnline {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
   color: hsl(var(--secondary-foreground));
   border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
+
+  &:hover {
+    background-color: transparent;
+    color: hsl(var(--secondary-foreground));
+  }
+}
+
+.icon {
+  margin-left: 5px;
 }
 
 .note {
-  margin-top: 60px;
+  margin-top: 50px;
   font-size: 1.2rem;
   color: hsl(var(--secondary-foreground));
   text-align: center;
 
-  @media (max-width: 600px) {
-    font-size: 1rem;
+  @media (max-width: 1000px) {
     margin-top: 40px;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 30px;
+  }
+}
+
+.showMoreButton {
+  background: none;
+  border: none;
+  color: hsl(var(--primary));
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  padding: 0;
+  text-decoration: none;
+
+  &:hover {
+    color: hsl(var(--foreground));
+  }
+}
+
+@media (max-width: 600px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .projectCard {
+    margin-bottom: 20px;
   }
 }
