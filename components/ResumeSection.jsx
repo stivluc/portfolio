@@ -10,7 +10,6 @@ import {
 import TechMarquee from './UI/TechMarquee';
 import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
-import { FaDownload, FaCheck, FaArrowDown } from 'react-icons/fa';
 
 const ResumeSection = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });

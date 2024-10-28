@@ -78,7 +78,6 @@ const ProjectsSection = () => {
                     <Image
                       src={project.image}
                       alt={project.title}
-                      layout='responsive'
                       width={400}
                       height={300}
                       className={styles.projectImage}
