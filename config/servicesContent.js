@@ -22,7 +22,7 @@ export const questions = [
     index: 1,
     question: 'What is your typical project timeline?',
     answer:
-      'The timeline for a project typically ranges from 4 to 8 weeks, depending on the scope and complexity. After an initial consultation, I’ll provide a detailed timeline with key milestones so you know what to expect at each stage.',
+      'The timeline for a project highly depends on the complexity and scope. For example, a simple showcase website can take as little as one or two weeks, while more complex websites or applications can take 1, 2, or even several months. After our initial consultation, I’ll provide a tailored timeline with key milestones to give you a clear idea of the project duration.',
   },
   {
     index: 2,

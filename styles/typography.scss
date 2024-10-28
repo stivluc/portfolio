@@ -60,3 +60,50 @@ p {
   line-height: 1.6;
   text-wrap: balance;
 }
+
+/* Shared title styles */
+.sectionTitle {
+  width: 100%;
+  position: relative;
+  margin-bottom: 70px;
+
+  @media (max-width: 1000px) {
+    margin-bottom: 60px;
+  }
+
+  @media (max-width: 600px) {
+    margin-bottom: 40px;
+  }
+
+  span {
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.06;
+    top: 1rem;
+
+    @media (max-width: 1000px) {
+      font-size: 100px;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 70px;
+    }
+  }
+}
+
+/* Alignment modifiers */
+.alignLeft {
+  text-align: left;
+
+  span {
+    left: 2rem;
+  }
+}
+
+.alignRight {
+  text-align: right;
+
+  span {
+    right: 2rem;
+  }
+}

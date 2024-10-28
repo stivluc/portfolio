@@ -4,27 +4,19 @@ import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 import FAQItem from './UI/FAQitem';
 import { questions, services } from '@/config/servicesContent';
+import SectionTitle from './UI/SectionTitle';
 
 const ServicesSection = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 1000px)' });
 
   return (
-    <section className={styles.servicesContainer} id='services'>
-      <div className={styles.services}>
-        <motion.h2
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true, amount: 0.5 }}
-          className={styles.title}
-        >
-          Services
-          <span>Services</span>
-        </motion.h2>
+    <section className={`sectionContainer bgBackground`} id='services'>
+      <div className={`section`}>
+        <SectionTitle title={'Services'} align='left' />
         <div className={styles.cardsContainer}>
           {services.map((service, index) => (
             <motion.div
-              className={styles.card}
+              className={styles.serviceCard}
               key={index}
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -60,11 +52,9 @@ const ServicesSection = () => {
         >
           Common questions
         </motion.h3>
-        <div>
-          {questions.map((q, i) => (
-            <FAQItem {...q} key={i} />
-          ))}
-        </div>
+        {questions.map((q, i) => (
+          <FAQItem {...q} key={i} />
+        ))}
       </div>
     </section>
   );

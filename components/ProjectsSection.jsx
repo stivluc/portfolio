@@ -23,14 +23,14 @@ const ProjectsSection = () => {
   const displayedProjects = isMobile && !showAllProjects ? projects.slice(0, 2) : projects;
 
   return (
-    <section className={styles.projectsContainer} id='projects'>
-      <div className={styles.projects}>
+    <section className={`sectionContainer bgBackground`} id='projects'>
+      <div className={'section'}>
         <motion.h2
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true, amount: 0.5 }}
-          className={styles.title}
+          className={'sectionTitle alignLeft'}
         >
           Projects
           <span>Projects</span>
@@ -47,7 +47,7 @@ const ProjectsSection = () => {
         <div className={styles.projectsGrid}>
           {displayedProjects.map((project, index) => (
             <motion.div
-              className={`${styles.projectCard} ${project.href ? styles.clickable : ''}`}
+              className={`card ${project.href ? `clickable` : ''}`}
               key={index}
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}

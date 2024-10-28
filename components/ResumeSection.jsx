@@ -10,6 +10,7 @@ import {
 import TechMarquee from './UI/TechMarquee';
 import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
+import SectionTitle from './UI/SectionTitle';
 
 const ResumeSection = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -20,22 +21,13 @@ const ResumeSection = () => {
   const certificationsToShow = showAllCertifications ? allCertifications : allCertifications.slice(0, 3);
 
   return (
-    <section className={styles.resumeContainer} id='resume'>
-      <div className={styles.resume}>
-        <motion.h2
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true, amount: 0.5 }}
-          className={styles.title}
-        >
-          Resume
-          <span>Resume</span>
-        </motion.h2>
+    <section className={`sectionContainer bgMuted`} id='resume'>
+      <div className={`section`}>
+        <SectionTitle title={'Resume'} align='right' />
 
         <div className={styles.eduExpContainer}>
           <motion.div
-            className={`${styles.section} ${styles.eduSection}`}
+            className={`${styles.resumeSection} ${styles.eduSection}`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -61,7 +53,7 @@ const ResumeSection = () => {
           </motion.div>
 
           <motion.div
-            className={`${styles.section} ${styles.expSection}`}
+            className={`${styles.resumeSection} ${styles.expSection}`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -93,7 +85,7 @@ const ResumeSection = () => {
         </div>
 
         <motion.div
-          className={`${styles.section} ${styles.technologiesSection}`}
+          className={`${styles.resumeSection} ${styles.technologiesSection}`}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -104,7 +96,7 @@ const ResumeSection = () => {
         </motion.div>
 
         <motion.div
-          className={`${styles.section} ${styles.certificationsSection}`}
+          className={`${styles.resumeSection} ${styles.certificationsSection}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
