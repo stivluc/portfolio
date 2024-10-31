@@ -5,9 +5,15 @@ import { useMediaQuery } from 'react-responsive';
 import FAQItem from './UI/FAQitem';
 import { questions, services } from '@/config/servicesContent';
 import SectionTitle from './UI/SectionTitle';
+import Image from 'next/image';
+import { handleScrollToSection } from '@/utils/handleScrollToSection';
 
 const ServicesSection = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 1000px)' });
+
+  const handleCtaClick = (e) => {
+    handleScrollToSection(e, 'contact', 1600);
+  };
 
   return (
     <section className={`sectionContainer bgBackground`} id='services'>
@@ -23,7 +29,14 @@ const ServicesSection = () => {
               transition={{ duration: 0.4, delay: isMobile ? 0.3 : index * 0.5 }}
               viewport={{ once: true, amount: 0.5 }}
             >
-              <img src={service.image} alt={service.title} className={styles.cardImage} />
+              <Image
+                height={200}
+                width={200}
+                src={service.image}
+                alt={service.title}
+                className={styles.cardImage}
+                priority
+              />
               <h3 className={styles.cardTitle}>{service.title}</h3>
               <p className={styles.cardDescription}>{service.description}</p>
             </motion.div>
@@ -34,11 +47,11 @@ const ServicesSection = () => {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true, amount: 0.5 }}
-          className={styles.ctaText}
+          className={`secondary alignCenter`}
         >
           Have a specific demand? <br />
           Feel free to{' '}
-          <a href='#contact' className={styles.ctaLink}>
+          <a href='#contact' className={styles.ctaLink} onClick={handleCtaClick}>
             send a message
           </a>
           .

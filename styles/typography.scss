@@ -59,6 +59,14 @@ p {
   font-size: 1.1rem;
   line-height: 1.6;
   text-wrap: balance;
+
+  &.secondary {
+    color: hsl(var(--secondary-foreground));
+
+    @media (max-width: 600px) {
+      font-size: 1rem;
+    }
+  }
 }
 
 /* Shared title styles */
@@ -106,4 +114,8 @@ p {
   span {
     right: 2rem;
   }
+}
+
+.alignCenter {
+  text-align: center;
 }

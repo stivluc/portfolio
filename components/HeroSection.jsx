@@ -3,6 +3,7 @@ import styles from './HeroSection.module.scss';
 import ProfileCard from './UI/ProfileCard';
 import { motion } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
+import { handleScrollToSection } from '@/utils/handleScrollToSection';
 
 const HeroSection = () => {
   const sentenceParts = [
@@ -24,42 +25,8 @@ const HeroSection = () => {
 
   let wordIndex = 0;
 
-  // Custom smooth scroll function with easing
-  const smoothScrollTo = (targetY, duration = 800) => {
-    const startY = window.pageYOffset;
-    const distanceY = targetY - startY;
-    let startTime = null;
-
-    // Easing function: easeOutQuad
-    const easeOutQuad = (t) => t * (2 - t);
-
-    const animationFrame = (currentTime) => {
-      if (!startTime) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1);
-      const easeProgress = easeOutQuad(progress);
-
-      window.scrollTo(0, startY + distanceY * easeProgress);
-
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animationFrame);
-      }
-    };
-
-    requestAnimationFrame(animationFrame);
-  };
-
-  // Function to handle smooth scrolling and offset
-  const handleCTAClick = (event) => {
-    event.preventDefault();
-    const element = document.getElementById('services');
-    if (element) {
-      const yOffset = -80; // Adjust for navbar height
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-      // Use custom smoothScrollTo function
-      smoothScrollTo(y, 800); // Adjust duration as needed
-    }
+  const handleCTAClick = (e) => {
+    handleScrollToSection(e, 'services', 800);
   };
 
   return (

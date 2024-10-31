@@ -34,13 +34,13 @@ const FAQItem = ({ index, question, answer }) => {
           <span className={styles.icon}>+</span>
         </motion.div>
       </motion.div>
-      <AnimatePresence initial={false}>
+      <AnimatePresence initial={true}>
         {isOpen && (
           <motion.div
             className={styles.faqAnswer}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            initial={{ height: 0, marginTop: 0, opacity: 0 }}
+            animate={{ height: 'auto', marginTop: '16px', opacity: 1 }}
+            exit={{ height: 0, marginTop: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
           >
             {answer}

@@ -156,13 +156,14 @@ const ResumeSection = () => {
           )}
         </motion.div>
         <motion.p
-          className={styles.downloadButtonText}
+          className={`secondary alignCenter`}
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true, amount: 0.5 }}
         >
-          If you're more old school, you can download my resume below
+          {`If you're more old school, you can `} <span>{`download my resume`}</span>
+          {`.`}
         </motion.p>
         <motion.div
           className={styles.downloadButtonContainer}

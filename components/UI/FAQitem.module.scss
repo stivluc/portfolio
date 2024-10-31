@@ -1,6 +1,7 @@
 .faqItem {
   position: relative;
   border: 1px solid hsla(var(--secondary-foreground), 0.3);
+  background-color: hsla(var(--card));
   box-shadow: var(--box-shadow);
   border-radius: var(--radius);
   margin-bottom: 15px;
@@ -44,7 +45,6 @@
 }
 
 .faqAnswer {
-  margin-top: 16px;
   color: hsl(var(--secondary-foreground));
   overflow: hidden;
 }
