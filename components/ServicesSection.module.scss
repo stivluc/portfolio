@@ -31,7 +31,7 @@
   text-align: center;
   padding: 20px;
   backdrop-filter: blur(10px);
-  transition: transform 0.3s;
+  transition: box-shadow 0.3s;
 
   &:hover {
     box-shadow: var(--hover-box-shadow);

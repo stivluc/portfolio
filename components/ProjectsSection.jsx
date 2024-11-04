@@ -92,7 +92,7 @@ const ProjectsSection = () => {
           ))}
         </div>
         {isMobile && !showAllProjects && projects.length > 2 && (
-          <button onClick={() => setShowAllProjects(true)} className={styles.showMoreButton}>
+          <button onClick={() => setShowAllProjects(true)} className={`showMoreButton`}>
             ... and {projects.length - 2} more
           </button>
         )}

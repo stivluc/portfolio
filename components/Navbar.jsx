@@ -10,25 +10,13 @@ import { socialIcons } from '@/config/socialIcons';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [theme, setTheme] = useState('light');
   const [isMobile, setIsMobile] = useState(false);
 
   const handleMobileToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-  };
-
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 880);
     };
@@ -37,7 +25,7 @@ const Navbar = () => {
     handleResize(); // Initial check
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [theme]);
+  }, []);
 
   // Custom smooth scroll function with easing
   const smoothScrollTo = (targetY, duration = 600) => {
@@ -85,15 +73,7 @@ const Navbar = () => {
         <div className={styles.logo}>
           <a href='#hero' onClick={(e) => handleNavLinkClick(e, 'Hero')}>
             <Image
-              src={
-                isMobile
-                  ? theme === 'light'
-                    ? '/StivlucNoir.svg'
-                    : '/StivlucBlanc.svg'
-                  : theme === 'light'
-                  ? '/Logo.svg'
-                  : '/WhiteLogo.svg'
-              }
+              src={isMobile ? '/StivlucNoir.svg' : '/Logo.svg'}
               alt='Logo'
               width={isMobile ? 120 : 45}
               height={40}
