@@ -8,6 +8,9 @@
 }
 
 .fabButton {
+  --transition: 0.25s;
+  --spark: 1.8s;
+  --base: 90%;
   --cut: 0.1em;
   --active: 0.8;
   --bg: radial-gradient(40% 50% at center 100%, hsl(270 calc(var(--active) * 97%) 72% / var(--active)), transparent),
@@ -32,30 +35,23 @@
 }
 
 .fabButton:active {
-  scale: 1;
+  scale: 0.95;
 }
 
-.fabSvg {
-  overflow: visible !important;
-}
-
-.sparkle path {
-  color: hsl(0 0% calc((var(--active + 1, 0) * 70%) + 90%));
+.download path {
+  color: hsl(0 0% calc((var(--active + 1, 0) * 70%) + var(--base)));
   transform-box: fill-box;
+  transform-origin: center;
   stroke: currentColor;
   animation-delay: calc((var(--transition) * 1.5));
   animation-duration: 0.6s;
   transition: color var(--transition);
 }
 
-.fabButton:is(:hover, :focus-visible) path {
-  color: hsl(0 0% calc((var(--active + 1, 0) * 70%) + 100%));
-}
-
 .fabButton:before {
   content: '';
   position: absolute;
-  inset: -0.1em;
+  inset: -0.25em;
   z-index: -1;
   border: 0.2em solid hsla(260, 76%, 60%, 0.5);
   border-radius: 100px;
@@ -120,7 +116,6 @@
 @supports (selector(:has(:is(+ *)))) {
   body:has(.fabButton:is(:hover, :focus-visible)) {
     --active: 1;
-    --play-state: running;
   }
   .bodydrop {
     display: none;
@@ -131,28 +126,18 @@
   --active: 1;
 }
 
-.sparkle-.fabButton {
-  position: relative;
-}
-
 .fabText {
-  translate: 2% 0%;
   margin-left: 10px;
-  background: linear-gradient(
-    90deg,
-    hsl(0 0% calc((var(--active) * 100%) + 97%)),
-    hsl(0 0% calc((var(--active) * 100%) + 79%))
-  );
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: hsl(var(--primary-foreground));
+  font-weight: 300;
   text-decoration: none;
   transition: background var(--transition);
 
   &.noText {
     margin-left: 0;
     transition: margin-left 0.8s;
-    // transition-delay: 1s;
   }
 }
 
