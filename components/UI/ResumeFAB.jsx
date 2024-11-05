@@ -81,7 +81,7 @@ const ResumeFAB = ({ sectionRef }) => {
       onHoverStart={() => setShowText(true)}
       onHoverEnd={handleScroll}
     >
-      <div
+      <button
         className={`${styles.fabButton} ${isDownloading ? styles.downloading : ''} ${
           downloadComplete ? styles.downloadComplete : ''
         }`}
@@ -140,7 +140,6 @@ const ResumeFAB = ({ sectionRef }) => {
           animate={showText ? 'expanded' : 'collapsed'}
           variants={widthVariants}
           transition={{ duration: 0.3 }}
-          className={styles.textContainer}
         >
           <AnimatePresence mode='wait'>
             {showText && (
@@ -160,7 +159,7 @@ const ResumeFAB = ({ sectionRef }) => {
             )}
           </AnimatePresence>
         </motion.div>
-      </div>
+      </button>
     </motion.div>
   );
 };
