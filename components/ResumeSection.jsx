@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+'use client';
+
+import React, { useState, useRef } from 'react';
 import styles from './ResumeSection.module.scss';
-import { motion } from 'framer-motion';
+import { motion, useInView, useAnimation } from 'framer-motion';
 import {
   certifications as allCertifications,
   education,
@@ -11,6 +13,7 @@ import TechMarquee from './UI/TechMarquee';
 import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
 import SectionTitle from './UI/SectionTitle';
+import ResumeFAB from './UI/ResumeFAB';
 
 const ResumeSection = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -20,8 +23,10 @@ const ResumeSection = () => {
   const experiencesToShow = showAllExperiences ? allExperiences : allExperiences.slice(0, 3);
   const certificationsToShow = showAllCertifications ? allCertifications : allCertifications.slice(0, 3);
 
+  const sectionRef = useRef(null);
+
   return (
-    <section className={`sectionContainer bgMuted`} id='resume'>
+    <section className={`sectionContainer bgMuted`} id='resume' ref={sectionRef}>
       <div className={`section`}>
         <SectionTitle title={'Resume'} align='right' />
 
@@ -155,25 +160,7 @@ const ResumeSection = () => {
             </button>
           )}
         </motion.div>
-        <motion.p
-          className={`secondary alignCenter`}
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          {`If you're more old school, you can `} <span>{`download my resume`}</span>
-          {`.`}
-        </motion.p>
-        <motion.div
-          className={styles.downloadButtonContainer}
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <button className={styles.downloadButton}>Download Resume (PDF)</button>
-        </motion.div>
+        <ResumeFAB sectionRef={sectionRef} isMobile={isMobile} />
       </div>
     </section>
   );

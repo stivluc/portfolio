@@ -1,0 +1,240 @@
+.fabContainer {
+  position: fixed;
+  bottom: 30px;
+  right: 1.5rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 600px) {
+    bottom: 20px;
+    right: 1rem;
+  }
+}
+
+.fabButton {
+  --cut: 0.1em;
+  --active: 0.8;
+  --bg: radial-gradient(40% 50% at center 100%, hsl(270 calc(var(--active) * 97%) 72% / var(--active)), transparent),
+    radial-gradient(80% 100% at center 120%, hsl(260 calc(var(--active) * 97%) 70% / var(--active)), transparent),
+    hsl(260 calc(var(--active) * 97%) calc((var(--active) * 44%) + 12%));
+  background: var(--bg);
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: 0;
+  cursor: pointer;
+  padding: 0.9em 1em;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  border-radius: 100px;
+  position: relative;
+  box-shadow: 0 0 calc(var(--active) * 1em) calc(var(--active) * 0.1em) hsl(var(--primary)),
+    0 0.05em 0 0 hsl(260 calc(var(--active) * 97%) calc((var(--active) * 50%) + 30%)) inset,
+    0 -0.05em 0 0 hsl(260 calc(var(--active) * 97%) calc(var(--active) * 60%)) inset;
+  transition: box-shadow var(--transition), scale var(--transition), background var(--transition);
+  scale: calc(1 + (var(--active) * 0.01));
+  overflow: hidden;
+}
+
+.fabButton:active {
+  scale: 1;
+}
+
+.fabSvg {
+  overflow: visible !important;
+}
+
+.sparkle path {
+  color: hsl(0 0% calc((var(--active + 1, 0) * 70%) + 90%));
+  transform-box: fill-box;
+  stroke: currentColor;
+  animation-delay: calc((var(--transition) * 1.5));
+  animation-duration: 0.6s;
+  transition: color var(--transition);
+}
+
+.fabButton:is(:hover, :focus-visible) path {
+  color: hsl(0 0% calc((var(--active + 1, 0) * 70%) + 100%));
+}
+
+.fabButton:before {
+  content: '';
+  position: absolute;
+  inset: -0.1em;
+  z-index: -1;
+  border: 0.2em solid hsla(260, 76%, 60%, 0.5);
+  border-radius: 100px;
+  opacity: var(--active, 0);
+  transition: opacity var(--transition);
+}
+
+.spark {
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  rotate: 0deg;
+  overflow: hidden;
+  mask: linear-gradient(white, transparent 50%);
+  animation: flip calc(var(--spark) * 2) infinite steps(2, end);
+}
+
+@keyframes flip {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.spark:before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  aspect-ratio: 1;
+  top: 0%;
+  left: 50%;
+  z-index: -1;
+  translate: -50% -15%;
+  rotate: 0;
+  transform: rotate(-90deg);
+  opacity: calc((var(--active)) + 0.4);
+  background: conic-gradient(from 0deg, transparent 0 340deg, white 360deg);
+  transition: opacity var(--transition);
+  animation: rotate var(--spark) linear infinite both;
+}
+
+.spark:after {
+  content: '';
+  position: absolute;
+  inset: var(--cut);
+  border-radius: 100px;
+}
+
+.backdrop {
+  position: absolute;
+  inset: var(--cut);
+  background: var(--bg);
+  border-radius: 100px;
+  transition: background var(--transition);
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@supports (selector(:has(:is(+ *)))) {
+  body:has(.fabButton:is(:hover, :focus-visible)) {
+    --active: 1;
+    --play-state: running;
+  }
+  .bodydrop {
+    display: none;
+  }
+}
+
+.fabButton:is(:hover, :focus-visible) {
+  --active: 1;
+}
+
+.sparkle-.fabButton {
+  position: relative;
+}
+
+.fabText {
+  translate: 2% 0%;
+  margin-left: 10px;
+  background: linear-gradient(
+    90deg,
+    hsl(0 0% calc((var(--active) * 100%) + 97%)),
+    hsl(0 0% calc((var(--active) * 100%) + 79%))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: background var(--transition);
+
+  &.noText {
+    margin-left: 0;
+    transition: margin-left 0.8s;
+    // transition-delay: 1s;
+  }
+}
+
+.fabButton .fabSvg {
+  height: 1.25em;
+  width: 1.25em;
+  translate: 0 -5%;
+}
+
+/* Loader animation */
+.loader {
+  animation: rotate 1.8s infinite;
+}
+
+.loaderCircle {
+  stroke-dasharray: 150, 200;
+  stroke-dashoffset: -10;
+  stroke-linecap: round;
+  animation: dash 1.35s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(180deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(360deg);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* Download Complete Animation */
+.downloadCompleteIcon {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.downloadCompleteCircle {
+  stroke-dasharray: 62.83; /* 2 * π * r */
+  stroke-dashoffset: 62.83;
+  animation: circleAnimation 0.5s forwards;
+}
+
+.downloadCompleteCheck {
+  stroke-dasharray: 14;
+  stroke-dashoffset: 14;
+  animation: checkAnimation 0.3s forwards 0.5s;
+}
+
+@keyframes circleAnimation {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes checkAnimation {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
