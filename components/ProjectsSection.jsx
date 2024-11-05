@@ -47,13 +47,16 @@ const ProjectsSection = () => {
         </motion.p>
         <div className={styles.projectsGrid}>
           {displayedProjects.map((project, index) => (
-            <motion.div
+            <a
               className={`card`}
-              key={index}
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.4, delay: index * 0.2 }}
               viewport={{ once: true, amount: 0.5 }}
+              key={index}
+              href={project.href}
+              style={{ textDecoration: 'none' }}
+              target='_blank'
             >
               <div className={styles.projectLinkWrapper}>
                 <div className={styles.imageWrapper}>
@@ -81,7 +84,7 @@ const ProjectsSection = () => {
                     : project.noHrefText || 'Not Online'}
                 </Button>
               </div>
-            </motion.div>
+            </a>
           ))}
         </div>
         {isMobile && !showAllProjects && projects.length > 2 && (

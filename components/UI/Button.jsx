@@ -21,12 +21,11 @@ const Button = ({
       href={isLink ? href : undefined}
       target={isLink ? '_blank' : undefined}
       rel={isLink ? 'noopener noreferrer' : undefined}
-      whileHover={!disabled ? { scale: 1.05 } : {}}
       {...rest}
     >
       <span className='button-text'>{children}</span>
       {Icon && (
-        <motion.span className='button-icon' whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }}>
+        <motion.span className='button-icon' whileHover={{ scale: 1.2 }} transition={{ type: 'spring', duration: 0.3 }}>
           <Icon />
         </motion.span>
       )}
