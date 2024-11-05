@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useAnimation, useInView } from 'framer-motion';
+import React, { useState, useEffect, useCallback } from 'react';
+import { AnimatePresence, motion, useAnimation, useInView } from 'framer-motion';
 import styles from './ResumeFAB.module.scss';
 
 const ResumeFAB = ({ sectionRef }) => {
@@ -10,6 +10,20 @@ const ResumeFAB = ({ sectionRef }) => {
   const isInView = useInView(sectionRef, { margin: '-60% 0px -90% 0px' }); // Adjusted margins
   const controls = useAnimation();
 
+  // Hide text after scrolling a bit
+  const handleScroll = useCallback(() => {
+    if (sectionRef.current) {
+      const sectionTop = sectionRef.current.getBoundingClientRect().top;
+
+      if (sectionTop > 200) {
+        //* 200 équivaut à la distance entre le top de la section et le haut de l'écran. On met de la marge pour prendre en compte la navbar.
+        setShowText(true);
+      } else {
+        setShowText(false);
+      }
+    }
+  }, []);
+
   useEffect(() => {
     if (isInView) {
       controls.start('visible');
@@ -17,23 +31,11 @@ const ResumeFAB = ({ sectionRef }) => {
       controls.start('hidden');
     }
 
-    // Hide text after scrolling a bit
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const sectionTop = sectionRef.current.getBoundingClientRect().top;
-
-        if (sectionTop > 160) {
-          //* 80 équivaut à la distance entre le top de la section et le haut de l'écran. On met de la marge pour prendre en compte la navbar.
-          setShowText(true);
-        } else {
-          setShowText(false);
-        }
-      }
-    };
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isInView, controls, sectionRef]);
+  }, [isInView, controls, sectionRef, handleScroll]);
 
   const handleDownloadClick = async () => {
     if (isDownloading) return;
@@ -53,6 +55,19 @@ const ResumeFAB = ({ sectionRef }) => {
     }, 2000);
   };
 
+  // Variants for text animation
+  const textVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -10 },
+  };
+
+  // Variants for width animation
+  const widthVariants = {
+    expanded: { width: 'auto' },
+    collapsed: { width: '0px' },
+  };
+
   return (
     <motion.div
       className={styles.fabContainer}
@@ -63,6 +78,8 @@ const ResumeFAB = ({ sectionRef }) => {
         hidden: { opacity: 0, scale: 0 },
       }}
       transition={{ duration: 0.3 }}
+      onHoverStart={() => setShowText(true)}
+      onHoverEnd={handleScroll}
     >
       <motion.button
         className={`${styles.fabButton} ${isDownloading ? styles.downloading : ''} ${
@@ -119,15 +136,32 @@ const ResumeFAB = ({ sectionRef }) => {
             />
           </svg>
         )}
-        <motion.a
-          className={`${styles.fabText} ${!showText ? styles.noText : ''}`}
-          animate={{ width: showText ? 'auto' : '0px', opacity: showText ? 1 : 0 }}
+        {/* Text with animation */}
+        <motion.div
+          initial='collapsed'
+          animate={showText ? 'expanded' : 'collapsed'}
+          variants={widthVariants}
           transition={{ duration: 0.3 }}
-          href='/resumeStevenLucas.pdf'
-          download
+          className={styles.textContainer}
         >
-          {isDownloading ? 'Downloading...' : downloadComplete ? 'Downloaded!' : 'Download my resume'}
-        </motion.a>
+          <AnimatePresence mode='wait'>
+            {showText && (
+              <motion.a
+                key={isDownloading ? 'downloading' : downloadComplete ? 'downloaded' : 'default'}
+                href='/resumeStevenLucas.pdf'
+                download
+                className={`${styles.fabText}`}
+                initial='hidden'
+                animate='visible'
+                exit='exit'
+                variants={textVariants}
+                transition={{ duration: 0.3 }}
+              >
+                {isDownloading ? 'Downloading...' : downloadComplete ? 'Downloaded!' : 'Download my resume'}
+              </motion.a>
+            )}
+          </AnimatePresence>
+        </motion.div>
       </motion.button>
     </motion.div>
   );
