@@ -23,6 +23,8 @@
     --spark: 1.8s;
 
     --background: 0 0% 98%; /* #fafafa */
+    --bg-hover: radial-gradient(40% 50% at center 100%, hsl(270, 97%, 72% / 0.8), transparent),
+      radial-gradient(80% 100% at center 120%, hsl(260, 97%, 70% / 0.8), transparent), hsl(260, 97%, 56%);
     --foreground: 0, 0%, 18%;
     --card: 0, 0%, 100%;
     --card-foreground: 222.2 47.4% 11.2%; /* #0F172A */

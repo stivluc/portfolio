@@ -53,42 +53,6 @@
   margin-bottom: 20px;
 }
 
-.projectLink,
-.projectNotOnline {
-  margin: auto 1.5rem 16px;
-  padding: 10px 20px;
-  color: hsl(var(--primary));
-  border: 1px solid hsl(var(--primary));
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
-.projectLink {
-  &:hover {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-  }
-}
-
-.projectNotOnline {
-  color: hsl(var(--secondary-foreground));
-  border: 1px solid hsl(var(--border));
-
-  &:hover {
-    background-color: transparent;
-    color: hsl(var(--secondary-foreground));
-  }
-}
-
-.icon {
-  margin-left: 5px;
-}
-
 .note {
   margin-top: 50px;
   font-size: 1.2rem;

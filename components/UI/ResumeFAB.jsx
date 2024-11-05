@@ -15,8 +15,8 @@ const ResumeFAB = ({ sectionRef }) => {
     if (sectionRef.current) {
       const sectionTop = sectionRef.current.getBoundingClientRect().top;
 
-      if (sectionTop > 200) {
-        //* 200 équivaut à la distance entre le top de la section et le haut de l'écran. On met de la marge pour prendre en compte la navbar.
+      if (sectionTop > 0) {
+        //* 0 équivaut à la distance entre le top de la section et le haut de l'écran. On met de la marge pour prendre en compte la navbar.
         setShowText(true);
       } else {
         setShowText(false);
