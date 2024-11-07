@@ -1,14 +1,17 @@
-// ContactSection.jsx
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ContactSection.module.scss';
 import { FiSend } from 'react-icons/fi';
-import { FaCheckCircle, FaGithub, FaLinkedin, FaTimesCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import SectionTitle from './UI/SectionTitle';
 import ProfileCard from './UI/ProfileCard';
+import Availability from './UI/Availability';
+import { contacts } from '@/config/contacts';
+import { useMediaQuery } from 'react-responsive';
 
 const ContactSection = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 881px)' });
+
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState({ submitting: false, success: false, error: '' });
 
@@ -53,35 +56,69 @@ const ContactSection = () => {
         <div className={styles.contactGrid}>
           {/* Left Side */}
           <div className={styles.contactDetails}>
-            <ProfileCard bgColor={'#f3f4f6'} />
-
-            <motion.p
-              initial={{ x: 10, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className={styles.description}
-            >
-              {`Let's collaborate and create something amazing together.`}
-              <br />
-              {` Feel free to reach out!`}
-            </motion.p>
-            <motion.div className={styles.contactInfo}>
+            <div>
+              <ProfileCard bgColor={'#f3f4f6'} />
+              {isMobile && (
+                <div style={{ marginTop: '2rem' }}>
+                  <Availability />
+                </div>
+              )}
+              <motion.hr
+                initial={{ x: 10, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className={styles.horizontalRule}
+              />
               <motion.p
                 initial={{ x: 10, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className={styles.description}
               >
-                <strong>Phone:</strong> <a href='tel:+33688074187'>+33 (0) 6 88 07 41 87</a>
+                {`Let's collaborate and create something amazing together.`}
+                {` Feel free to reach out!`}
               </motion.p>
-            </motion.div>
-            <motion.div className={styles.socialLinks}>
-              <a href='https://github.com/stivluc' target='_blank' rel='noopener noreferrer'>
-                <FaGithub />
-              </a>
-              <a href='https://www.linkedin.com/in/stivluc' target='_blank' rel='noopener noreferrer'>
-                <FaLinkedin />
-              </a>
-            </motion.div>
+              {!isMobile && (
+                <motion.div className={styles.contactInfo}>
+                  {contacts.map((contact) => (
+                    <motion.p
+                      key={contact.name}
+                      initial={{ x: 10, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                    >
+                      {contact.icon} <a href={contact.href}>{contact.text}</a>
+                    </motion.p>
+                  ))}
+                </motion.div>
+              )}
+            </div>
+            {!isMobile && (
+              <div>
+                <Availability />
+              </div>
+            )}
+            {isMobile && (
+              <div className={styles.contactIcons}>
+                {contacts.map((contact, index) => (
+                  <motion.a
+                    initial={{ y: 10, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.5, delay: 0.3 * (index + 1) }}
+                    key={contact.name}
+                    href={contact.href}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    {contact.icon}
+                  </motion.a>
+                ))}
+              </div>
+            )}
           </div>
           {/* Right Side */}
           <motion.div
@@ -91,8 +128,8 @@ const ContactSection = () => {
             viewport={{ once: true, amount: 0.5 }}
           >
             <div className={styles.formCard}>
-              <motion.form className={styles.contactForm} onSubmit={handleSubmit}>
-                <motion.div className={styles.formGroup}>
+              <form className={styles.contactForm} onSubmit={handleSubmit}>
+                <div className={styles.formGroup}>
                   <label htmlFor='name'>Name</label>
                   <input
                     type='text'
@@ -102,8 +139,8 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     required
                   />
-                </motion.div>
-                <motion.div className={styles.formGroup}>
+                </div>
+                <div className={styles.formGroup}>
                   <label htmlFor='email'>Email</label>
                   <input
                     type='email'
@@ -113,8 +150,8 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     required
                   />
-                </motion.div>
-                <motion.div className={styles.formGroup}>
+                </div>
+                <div className={styles.formGroup}>
                   <label htmlFor='message'>Message</label>
                   <textarea
                     name='message'
@@ -124,9 +161,9 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     required
                   ></textarea>
-                </motion.div>
+                </div>
                 {/* Custom Send Button */}
-                <motion.button
+                <button
                   type='submit'
                   className={styles.sendButton}
                   disabled={status.submitting || status.success}
@@ -173,13 +210,14 @@ const ContactSection = () => {
                       </motion.span>
                     )}
                   </AnimatePresence>
-                </motion.button>
+                </button>
                 {status.error && (
                   <motion.p className={styles.errorMessage} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                    <FaTimesCircle /> {status.error}
+                    <FaTimesCircle />
+                    Something went wrong. Please try again.
                   </motion.p>
                 )}
-              </motion.form>
+              </form>
             </div>
           </motion.div>
         </div>

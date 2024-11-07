@@ -2,6 +2,7 @@ import localFont from 'next/font/local';
 import dynamic from 'next/dynamic';
 import Navbar from '@/components/Navbar';
 import '@/styles/globals.scss';
+import Footer from '@/components/Footer';
 
 const heming = localFont({
   src: '../fonts/Heming.ttf',
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
         /> */}
         <Navbar />
         <main style={{ paddingTop: '80px' }}>{children}</main>
+        <Footer />
       </body>
     </html>
   );

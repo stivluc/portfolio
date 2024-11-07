@@ -4,6 +4,7 @@ import ProfileCard from './UI/ProfileCard';
 import { motion } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { handleScrollToSection } from '@/utils/handleScrollToSection';
+import Availability from './UI/Availability';
 
 const HeroSection = () => {
   const sentenceParts = [
@@ -73,17 +74,7 @@ const HeroSection = () => {
             </h1>
           </div>
         </div>
-        <motion.div
-          initial={{ x: 20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className={styles.additionalText}
-        >
-          (2019 - PRESENT)
-          <div className={styles.availability}>
-            <span className={styles.dot}></span> Available for freelance
-          </div>
-        </motion.div>
+        <Availability />
         <div className={styles.declarationContainer}>
           <motion.p
             className={styles.declaration}
