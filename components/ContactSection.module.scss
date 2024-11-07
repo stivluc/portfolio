@@ -1,90 +1,119 @@
-.contactContainer {
-  position: relative;
-  padding: 80px 20px;
-  width: 100%;
-  margin: auto;
+.contactGrid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 2rem auto;
   color: hsl(var(--foreground));
   background-color: hsl(var(--muted));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
+  position: relative;
 
-  @media (max-width: 1200px) {
-    padding: 80px 20px;
-  }
-
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
+    flex-direction: column;
     padding: 40px 15px;
   }
 }
 
-.contact {
-  width: 100%;
-  max-width: 1100px;
+.contactDetails {
+  flex: 1;
+  margin-right: 40px;
+
+  @media (max-width: 800px) {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
 }
 
-.title {
-  text-align: right;
-  width: 100%;
-  position: relative;
-  margin-bottom: 20px;
+.description {
+  font-size: 1.2rem;
+  color: hsl(var(--secondary-foreground));
+  margin-bottom: 30px;
+}
 
-  span {
-    position: absolute;
-    font-size: 120px;
-    opacity: 0.06;
-    top: 1rem;
-    right: 2rem;
+.contactInfo {
+  font-size: 1rem;
+  color: hsl(var(--secondary-foreground));
+  margin-bottom: 30px;
 
-    @media (max-width: 1000px) {
-      font-size: 100px;
-    }
+  p {
+    margin-bottom: 10px;
+  }
 
-    @media (max-width: 600px) {
-      font-size: 70px;
+  a {
+    color: hsl(var(--primary));
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
 
-.subtitle {
-  text-align: center;
-  font-size: 1.2rem;
-  color: hsl(var(--secondary-foreground));
-  margin-top: 50px;
-  margin-bottom: 30px;
+.socialLinks {
+  display: flex;
+  gap: 20px;
+
+  a {
+    font-size: 1.5rem;
+    color: hsl(var(--foreground));
+    transition: color 0.3s;
+
+    &:hover {
+      color: hsl(var(--primary));
+    }
+  }
+}
+
+.contactFormWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.formCard {
+  width: 100%;
+  max-width: 500px;
+  background-color: hsl(var(--background));
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 0;
+  margin-bottom: -50px;
+
+  @media (max-width: 800px) {
+    margin-bottom: 0;
+  }
 }
 
 .contactForm {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  flex-grow: 1; /* Ensures the form takes up available space */
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
-}
 
-.label {
-  margin-bottom: 8px;
-  font-weight: bold;
-}
+  label {
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
 
-.input,
-.textarea {
-  padding: 10px;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  background-color: hsl(var(--input-background));
-  color: hsl(var(--foreground));
-  font-size: 1rem;
-  resize: none;
+  input,
+  textarea {
+    padding: 10px;
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    background-color: hsl(var(--input-background));
+    color: hsl(var(--foreground));
+    font-size: 1rem;
+    resize: none;
 
-  &:focus {
-    outline: none;
-    border-color: hsl(var(--primary));
+    &:focus {
+      outline: none;
+      border-color: hsl(var(--primary));
+    }
   }
 }
 
@@ -100,7 +129,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-top: 20px; /* Adds space above the button */
+  margin-top: 20px;
 
   &:hover {
     background-color: hsl(var(--primary-hover));
@@ -126,42 +155,4 @@
   color: hsl(var(--error));
   margin-top: 10px;
   text-align: center;
-}
-
-.note {
-  margin-top: 60px;
-  font-size: 1.2rem;
-  color: hsl(var(--secondary-foreground));
-  text-align: center;
-}
-
-.showMoreButton {
-  background: none;
-  border: none;
-  color: hsl(var(--primary));
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 20px;
-  padding: 0;
-  text-decoration: underline;
-
-  &:hover {
-    color: hsl(var(--foreground));
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .parallaxBackground img {
-    will-change: transform;
-    animation: parallaxScroll 20s linear infinite alternate;
-  }
-
-  @keyframes parallaxScroll {
-    from {
-      transform: translateY(-20%);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
 }

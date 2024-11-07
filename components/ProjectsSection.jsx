@@ -47,16 +47,17 @@ const ProjectsSection = () => {
         </motion.p>
         <div className={styles.projectsGrid}>
           {displayedProjects.map((project, index) => (
-            <motion.a
+            <motion.div
               className={`card`}
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.4, delay: index * 0.2 }}
               viewport={{ once: true, amount: 0.5 }}
               key={index}
-              href={project.href}
-              style={{ textDecoration: 'none' }}
-              target='_blank'
+              onClick={() => {
+                window.open(project.href, '_blank').focus();
+              }}
+              style={{ cursor: 'pointer' }}
             >
               <div className={styles.projectLinkWrapper}>
                 <div className={styles.imageWrapper}>
@@ -66,6 +67,7 @@ const ProjectsSection = () => {
                     width={400}
                     height={300}
                     className={styles.projectImage}
+                    priority
                   />
                 </div>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
@@ -77,20 +79,18 @@ const ProjectsSection = () => {
                   href={project.href}
                   disabled={!project.href}
                   icon={project.href ? FiArrowUpRight : null}
-                  style={{ margin: 'auto 1.2rem 1rem' }}
+                  style={{ margin: 'auto 1.2rem 1rem', textDecoration: 'none' }}
                 >
                   {project.href
                     ? project.hrefText || `Visit ${new URL(project.href).hostname}`
                     : project.noHrefText || 'Not Online'}
                 </Button>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
         {isMobile && !showAllProjects && projects.length > 2 && (
-          <button onClick={() => setShowAllProjects(true)} className={`showMoreButton`}>
-            ... and {projects.length - 2} more
-          </button>
+          <motion.a onClick={() => setShowAllProjects(true)}>... and {projects.length - 2} more</motion.a>
         )}
         <motion.p
           initial={{ y: 30, opacity: 0 }}
@@ -101,7 +101,7 @@ const ProjectsSection = () => {
         >
           Due to client confidentiality, some projects are not displayed.
           <br />
-          Oh, and yours could be next!
+          Add your project to the list!
         </motion.p>
       </div>
     </section>

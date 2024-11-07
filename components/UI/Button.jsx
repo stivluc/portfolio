@@ -14,7 +14,7 @@ const Button = ({
   const isLink = !!href && !disabled;
 
   return (
-    <motion.button
+    <motion.a
       className={`custom-button ${variant} ${disabled ? 'disabled' : ''}`}
       onClick={disabled ? undefined : onClick}
       href={isLink ? href : undefined}
@@ -22,13 +22,15 @@ const Button = ({
       rel={isLink ? 'noopener noreferrer' : undefined}
       {...rest}
     >
-      <span className='button-text'>{children}</span>
+      <span className='button-text' style={{ textDecoration: 'none' }}>
+        {children}
+      </span>
       {Icon && (
         <motion.span className='button-icon' whileHover={{ scale: 1.2 }} transition={{ type: 'spring', duration: 0.3 }}>
           <Icon />
         </motion.span>
       )}
-    </motion.button>
+    </motion.a>
   );
 };
 

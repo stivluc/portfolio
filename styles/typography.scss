@@ -69,6 +69,16 @@ p {
   }
 }
 
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 /* Shared title styles */
 .sectionTitle {
   width: 100%;

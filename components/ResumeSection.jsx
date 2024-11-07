@@ -82,9 +82,7 @@ const ResumeSection = () => {
               </motion.div>
             ))}
             {!showAllExperiences && allExperiences.length > 3 && (
-              <button onClick={() => setShowAllExperiences(true)} className={`showMoreButton`}>
-                ... and {allExperiences.length - 3} others
-              </button>
+              <a onClick={() => setShowAllExperiences(true)}>... and {allExperiences.length - 3} others</a>
             )}
           </motion.div>
         </div>
@@ -155,9 +153,7 @@ const ResumeSection = () => {
             })}
           </motion.div>
           {!showAllCertifications && allCertifications.length > 3 && (
-            <button onClick={() => setShowAllCertifications(true)} className={`showMoreButton`}>
-              ... and {allCertifications.length - 3} others
-            </button>
+            <a onClick={() => setShowAllCertifications(true)}>... and {allCertifications.length - 3} others</a>
           )}
         </motion.div>
         <ResumeFAB sectionRef={sectionRef} isMobile={isMobile} />

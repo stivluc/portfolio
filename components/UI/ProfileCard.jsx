@@ -41,7 +41,7 @@ const ProfileCard = () => {
 
       <motion.div
         initial={{ backgroundColor: '#f7f8f9' }}
-        animate={{ backgroundColor: 'transparent' }}
+        animate={{ backgroundColor: '#f7f8f900' }}
         transition={{ delay: 1 }}
         className={styles.textContainer}
       >

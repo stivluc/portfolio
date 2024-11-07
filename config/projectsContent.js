@@ -11,13 +11,13 @@ export const projects = [
     description:
       'Website for an association aiding the visually impaired. Includes a shop, donation system, mass emails, volunteer forms, and admin interface.',
     image: '/WinkMonaco.png',
-    href: 'https://www.wink-monaco.mc',
+    href: 'https://wink-monaco.mc',
   },
   {
     title: 'Lawyer Website',
     description: 'Showcase website for a lawyer, including presentation, contact, and services sections.',
     image: '/ChristineLucas.png',
-    href: 'https://www.christinelucas.fr',
+    href: 'https://christinelucas.fr',
   },
   {
     title: 'BuddyGames',

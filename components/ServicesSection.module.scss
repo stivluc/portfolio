@@ -118,18 +118,6 @@
   }
 }
 
-.ctaLink {
-  color: hsl(var(--primary));
-  text-decoration: none;
-  border-bottom: 1px solid hsl(var(--primary));
-  transition: color 0.3s, border-color 0.3s;
-
-  &:hover {
-    color: hsl(var(--foreground));
-    border-color: hsl(var(--foreground));
-  }
-}
-
 .questionsTitle {
   width: 100%;
   text-align: left;

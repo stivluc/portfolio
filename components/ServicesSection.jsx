@@ -51,7 +51,7 @@ const ServicesSection = () => {
         >
           Have a specific demand? <br />
           Feel free to{' '}
-          <a href='#contact' className={styles.ctaLink} onClick={handleCtaClick}>
+          <a href='#contact' onClick={handleCtaClick}>
             send a message
           </a>
           .

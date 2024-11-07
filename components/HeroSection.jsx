@@ -43,7 +43,7 @@ const HeroSection = () => {
         className={styles.hero}
         id='hero'
         initial={{ backgroundColor: '#fafafa' }}
-        animate={{ backgroundColor: 'transparent' }}
+        animate={{ backgroundColor: '#ffffff00' }}
         transition={{ duration: 2, delay: 10 }}
       >
         <div className={styles.profileCardContainer}>
@@ -101,6 +101,7 @@ const HeroSection = () => {
             href='#services'
             className={styles.ctaButton}
             onClick={handleCTAClick}
+            style={{ textDecoration: 'none' }}
           >
             See what I can do <FiArrowUpRight className={styles.arrowIcon} />
           </motion.a>

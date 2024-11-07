@@ -153,6 +153,7 @@ const ResumeFAB = ({ sectionRef }) => {
                 exit='exit'
                 variants={textVariants}
                 transition={{ duration: 0.3 }}
+                style={{ textDecoration: 'none' }}
               >
                 {isDownloading ? 'Downloading...' : downloadComplete ? 'Downloaded!' : 'Download my resume'}
               </motion.a>

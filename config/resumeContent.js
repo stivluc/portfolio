@@ -61,6 +61,7 @@ export const technologies = [
   { src: '/icons/postgresql-logo.svg', alt: 'PostgreSQL' },
   { src: '/icons/vue.svg', alt: 'Vue.js' },
   { src: '/icons/python.svg', alt: 'Python' },
+  { src: '/icons/fastapi.svg', alt: 'FastAPI' },
 ];
 
 export const certifications = [
