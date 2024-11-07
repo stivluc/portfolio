@@ -12,10 +12,9 @@ const Button = ({
   ...rest
 }) => {
   const isLink = !!href && !disabled;
-  const MotionComponent = isLink ? motion.a : motion.button;
 
   return (
-    <MotionComponent
+    <motion.button
       className={`custom-button ${variant} ${disabled ? 'disabled' : ''}`}
       onClick={disabled ? undefined : onClick}
       href={isLink ? href : undefined}
@@ -29,7 +28,7 @@ const Button = ({
           <Icon />
         </motion.span>
       )}
-    </MotionComponent>
+    </motion.button>
   );
 };
 

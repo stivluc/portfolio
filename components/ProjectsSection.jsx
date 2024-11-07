@@ -47,7 +47,7 @@ const ProjectsSection = () => {
         </motion.p>
         <div className={styles.projectsGrid}>
           {displayedProjects.map((project, index) => (
-            <a
+            <motion.a
               className={`card`}
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -84,7 +84,7 @@ const ProjectsSection = () => {
                     : project.noHrefText || 'Not Online'}
                 </Button>
               </div>
-            </a>
+            </motion.a>
           ))}
         </div>
         {isMobile && !showAllProjects && projects.length > 2 && (

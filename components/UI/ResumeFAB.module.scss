@@ -48,6 +48,18 @@
   transition: color var(--transition);
 }
 
+@keyframes bounce {
+  35%,
+  65% {
+    translate: 0 15%;
+  }
+}
+
+.fabButton:is(:hover, :focus-visible) path:nth-of-type(2) {
+  animation-name: bounce;
+  animation-delay: 0.2;
+}
+
 .fabButton:before {
   content: '';
   position: absolute;
@@ -71,7 +83,7 @@
 
 @keyframes flip {
   to {
-    rotate: 360deg;
+    transform: rotate(360deg);
   }
 }
 
@@ -149,7 +161,7 @@
 
 /* Loader animation */
 .loader {
-  animation: rotate 1.8s infinite;
+  animation: rotateLoader 1.8s infinite;
 }
 
 .loaderCircle {
@@ -159,7 +171,7 @@
   animation: dash 1.35s ease-in-out infinite;
 }
 
-@keyframes rotate {
+@keyframes rotateLoader {
   0% {
     transform: rotate(0deg);
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
