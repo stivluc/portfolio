@@ -56,7 +56,6 @@ export const metadata = {
       'Portfolio of Steven Lucas, a full-stack engineer specializing in React and Next.js. Available for freelance projects.',
     images: ['/twitter-image.jpg'],
   },
-  viewport: 'width=device-width, initial-scale=1',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
