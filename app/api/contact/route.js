@@ -1,3 +1,5 @@
+export const runtime = 'node';
+
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { LRUCache } from 'lru-cache';
