@@ -1,5 +1,5 @@
-export const runtime = 'node';
-export const methods = ['POST']; // Add this line to specify allowed methods
+export const runtime = 'nodejs';
+export const methods = ['POST'];
 
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
