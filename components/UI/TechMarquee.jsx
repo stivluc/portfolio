@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import styles from './TechMarquee.module.scss';
 import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
@@ -22,8 +21,9 @@ const TechMarquee = ({ technologies, isMobile }) => {
         ))}
       </Marquee>
       <p className={styles.text}>
-        Frameworks, databases, and services I'm mostly used to working with. <br /> Always keep learning to stay up to
-        date!
+        {`Frameworks, databases, and services I'm mostly used to working with.`} <br />{' '}
+        {`Always keep learning to stay up to
+        date!`}
       </p>
     </div>
   );

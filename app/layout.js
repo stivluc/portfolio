@@ -32,21 +32,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={`${sourceSans3.variable} ${heming.variable} ${sourceSans3.className} ${heming.className}`}>
-        {/* <AnimatedCursor
-          innerSize={5}
-          outerSize={30}
-          color='200,200,200'
-          outerAlpha={0.3}
-          innerScale={0.7}
-          outerScale={1.3}
-          trailingSpeed={5}
-          outerStyle={{
-            border: '2px solid var(--cursor-color)',
-          }}
-          innerStyle={{
-            backgroundColor: 'var(--cursor-color)',
-          }}
-        /> */}
         <Navbar />
         <main style={{ paddingTop: '80px' }}>{children}</main>
         <Footer />

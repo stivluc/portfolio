@@ -24,12 +24,12 @@
 }
 
 .description {
-  margin-top: 1rem;
+  font-size: large;
   color: hsl(var(--secondary-foreground));
 
   @media (max-width: 881px) {
     margin: 1.5rem auto 1rem;
-    text-align: left;
+    text-align: center;
     max-width: 500px;
   }
 }
@@ -50,8 +50,12 @@
 
 .horizontalRule {
   width: 80%;
-  margin: 1rem auto;
-  border-color: #fff;
+  margin: 1.5rem auto;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid lightgray;
+  padding: 0;
 }
 
 .contactIcons {
@@ -69,6 +73,12 @@
       color: hsl(var(--primary));
       transform: scale(1.1);
     }
+  }
+
+  @media (max-width: 881px) {
+    margin: auto;
+    text-align: center;
+    max-width: 500px;
   }
 }
 

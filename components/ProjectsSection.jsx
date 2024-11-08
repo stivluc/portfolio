@@ -1,4 +1,3 @@
-// ProjectsSection.jsx
 import React, { useState, useEffect } from 'react';
 import styles from './ProjectsSection.module.scss';
 import { motion } from 'framer-motion';
@@ -43,7 +42,7 @@ const ProjectsSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           className={styles.introText}
         >
-          Here are some of the main projects I've completed.
+          {`Here are some of the main projects I've completed.`}
         </motion.p>
         <div className={styles.projectsGrid}>
           {displayedProjects.map((project, index) => (

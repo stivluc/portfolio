@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './ContactSection.module.scss';
 import { FiSend } from 'react-icons/fi';
@@ -7,14 +7,24 @@ import SectionTitle from './UI/SectionTitle';
 import ProfileCard from './UI/ProfileCard';
 import Availability from './UI/Availability';
 import { contacts } from '@/config/contacts';
-import { useMediaQuery } from 'react-responsive';
 
 const ContactSection = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 881px)' });
+  const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState({ submitting: false, success: false, error: '' });
 
+  useEffect(() => {
+    setIsMounted(true);
+    const mediaQuery = window.matchMedia('(max-width: 881px)');
+    setIsMobile(mediaQuery.matches);
+
+    const handler = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener('change', handler);
+
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -58,7 +68,7 @@ const ContactSection = () => {
           <div className={styles.contactDetails}>
             <div>
               <ProfileCard bgColor={'#f3f4f6'} />
-              {isMobile && (
+              {isMounted && isMobile && (
                 <div style={{ marginTop: '2rem' }}>
                   <Availability />
                 </div>
@@ -80,7 +90,7 @@ const ContactSection = () => {
                 {`Let's collaborate and create something amazing together.`}
                 {` Feel free to reach out!`}
               </motion.p>
-              {!isMobile && (
+              {!isMounted || !isMobile ? (
                 <motion.div className={styles.contactInfo}>
                   {contacts.map((contact) => (
                     <motion.p
@@ -94,14 +104,14 @@ const ContactSection = () => {
                     </motion.p>
                   ))}
                 </motion.div>
-              )}
+              ) : null}
             </div>
-            {!isMobile && (
+            {!isMounted || !isMobile ? (
               <div>
                 <Availability />
               </div>
-            )}
-            {isMobile && (
+            ) : null}
+            {isMounted && isMobile && (
               <div className={styles.contactIcons}>
                 {contacts.map((contact, index) => (
                   <motion.a
@@ -123,8 +133,9 @@ const ContactSection = () => {
           {/* Right Side */}
           <motion.div
             className={styles.contactFormWrapper}
-            initial='hidden'
-            whileInView='visible'
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
             viewport={{ once: true, amount: 0.5 }}
           >
             <div className={styles.formCard}>
