@@ -9,26 +9,28 @@ export const projects = [
   {
     title: 'Wink Monaco',
     description:
-      'Website for an association aiding the visually impaired. Includes a shop, donation system, mass emails, volunteer forms, and admin interface.',
+      'Website for an association supporting the visually impaired. Features include a donations system, e-commerce, articles, mass emailing, and more.',
     image: '/WinkMonaco.png',
     href: 'https://wink-monaco.mc',
   },
   {
     title: 'Lawyer Website',
-    description: 'Showcase website for a lawyer, including presentation, contact, and services sections.',
+    description:
+      'Showcase website for a lawyer, featuring presentation, contact, and services sections. It helped double her monthly cases since its launch.',
     image: '/ChristineLucas.png',
     href: 'https://christinelucas.fr',
   },
   {
     title: 'BuddyGames',
-    description: 'Board games rental service with admin interface to manage games, orders, and users.',
+    description:
+      'Board games rental service, featuring an admin interface to manage games, orders, subscriptions, and users. Built with ReactJS & Symfony.',
     image: '/BuddyGames.png',
     noHrefText: 'Company Closed',
   },
   {
     title: 'GamblEats',
     description:
-      'Food ordering platform where each order gives a chance to get it free. Built with microservices architecture.',
+      'Food ordering platform where each order gives a chance to get it free. It features three interfaces (driver, restaurant and user). Built with a microservices architecture.',
     image: '/GamblEats.png',
     noHrefText: 'School Project',
   },

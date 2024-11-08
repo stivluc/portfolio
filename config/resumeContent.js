@@ -23,30 +23,30 @@ export const experiences = [
   {
     position: 'Freelance Full-Stack Engineer',
     company: 'Self-employed',
-    year: 'Since Dec. 2022',
+    year: 'Since Dec. 2019',
     description:
-      'Developed web-apps for different clients, tailored to their needs. From complex full-stack architecture to little showcase websites.',
+      'Developed web-apps for different clients, tailored to their needs. From complex full-stack architecture to little showcase websites, see below.',
   },
   {
     position: 'Head of Engineering Department',
     company: 'GXO Logistics, Lesquin',
-    year: 'Sept. 2023 - Sept. 2024',
+    year: 'Sept. 2023 - Nov. 2024',
     description:
-      'Supervised two engineers. Local data referent. Developed tools to optimize logistics processes, handled full project management, trainings, and presentations at national & European levels.',
+      'Managed two engineers and served as the local data referent. Developed tools to streamline logistics processes, cutting control time by 50% and reducing inventory time by 30%. Led specifications drafting, agile project management, trainings, and conducted presentations at national & European levels.',
   },
   {
     position: 'Full-Stack Engineer',
     company: 'Informatics Research Institute, Lafayette, LA',
     year: 'June 2023 - Sept. 2023',
     description:
-      'Developed a web interface to easily review and correct medical audiotranscriptions, deployed in Louisiana affiliated hospitals.',
+      'Developed a healthcare software in VueJS to streamline audio transcription correction in hospitals. Currently deployed in Louisiana state-affiliated hospitals, the solution reduced average correction time by 50%.',
   },
   {
     position: 'Full-Stack Engineer',
     company: 'GXO Logistics, Lesquin',
     year: 'Sept. 2021 - Sept. 2023',
     description:
-      'Developed a web app from scratch to centralize warehouse data from different sources. Enabled tracking of activities, productivity and statistics.',
+      'Development of a local web app from scratch (ReactJS & Express) to centralize warehouse data from different sources. It enables comprehensive tracking of activities, productivity metrics, and access statistics with a few clicks. Saving managers over 3 hours daily on data retrieval. ',
   },
 ];
 

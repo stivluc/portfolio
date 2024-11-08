@@ -82,8 +82,7 @@ const HeroSection = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.5 }}
           >
-            I’m dedicated to crafting solutions that perfectly meet your needs, combining design and development to
-            deliver fast, impactful results.
+            {`Driven by the challenge of finding optimized solutions to complex problems.  I'm passionate about using technology to make a positive impact and create real change. `}
           </motion.p>
           <motion.a
             initial={{ y: 5, opacity: 0 }}
