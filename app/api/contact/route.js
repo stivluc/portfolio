@@ -1,4 +1,4 @@
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 export const methods = ['POST'];
 
 import { NextResponse } from 'next/server';
