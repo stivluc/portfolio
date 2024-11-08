@@ -206,7 +206,7 @@ const ContactSection = () => {
                         className={styles.buttonContent}
                       >
                         Message sent!
-                        <FaCheckCircle className={styles.icon} />
+                        <FaCheckCircle className={styles.icon} aria-hidden='true' />
                       </motion.span>
                     ) : (
                       <motion.span
@@ -217,14 +217,14 @@ const ContactSection = () => {
                         className={styles.buttonContent}
                       >
                         Send Message
-                        <FiSend className={styles.sendIcon} />
+                        <FiSend className={styles.sendIcon} aria-hidden='true' />
                       </motion.span>
                     )}
                   </AnimatePresence>
                 </button>
                 {status.error && (
                   <motion.p className={styles.errorMessage} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                    <FaTimesCircle />
+                    <FaTimesCircle aria-hidden='true' />
                     Something went wrong. Please try again.
                   </motion.p>
                 )}

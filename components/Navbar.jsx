@@ -115,10 +115,10 @@ const Navbar = () => {
           {isMobile && (
             <>
               <a href='tel:+33688074187' className={`${styles.iconButton} ${styles.callButton}`}>
-                <FaPhone />
+                <FaPhone aria-label='Phone Number' />
               </a>
               <button className={styles.menuButton} onClick={handleMobileToggle}>
-                {mobileOpen ? <FaTimes /> : <FaBars />}
+                {mobileOpen ? <FaTimes aria-label='Close Menu' /> : <FaBars aria-label='Menu' />}
               </button>
             </>
           )}
@@ -155,7 +155,7 @@ const Navbar = () => {
             {/* Keep the phone button only on mobile */}
             {isMobile && (
               <a href='tel:+33688074187' className={styles.mobileSocialIcon}>
-                <FaPhone />
+                <FaPhone aria-label='Phone Number' />
               </a>
             )}
           </div>
