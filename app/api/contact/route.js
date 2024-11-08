@@ -1,5 +1,3 @@
-// app/api/contact/route.js
-
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { LRUCache } from 'lru-cache';

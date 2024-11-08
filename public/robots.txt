@@ -1,4 +1,9 @@
+# *
 User-agent: *
-Disallow:
+Allow: /
 
+# Host
+Host: https://stivluc.com
+
+# Sitemaps
 Sitemap: https://stivluc.com/sitemap.xml
