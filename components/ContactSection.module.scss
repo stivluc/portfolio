@@ -234,9 +234,10 @@
 
 /* Error Message */
 .errorMessage {
-  position: absolute;
+  white-space: nowrap;
   color: hsl(var(--secondary-foreground));
   font-size: 0.9rem;
+  margin-top: 8px;
   bottom: 8px;
   color: hsl(var(--error));
   display: flex;
