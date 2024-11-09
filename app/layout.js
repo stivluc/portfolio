@@ -66,6 +66,7 @@ export const metadata = {
 /** @type {import("next").Viewport} */
 export const viewport = {
   width: 'device-width',
+  viewportFit: 'cover',
   initialScale: 1,
   shrinkToFit: false,
 };

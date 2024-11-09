@@ -1,21 +1,34 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { AnimatePresence, motion, useAnimation, useInView } from 'framer-motion';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import styles from './ResumeFAB.module.scss';
 
 const ResumeFAB = ({ sectionRef }) => {
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadComplete, setDownloadComplete] = useState(false);
   const [showText, setShowText] = useState(true);
+  const [isInView, setIsInView] = useState(false);
 
-  const isInView = useInView(sectionRef, { margin: '-60% 0px -90% 0px' }); // Adjusted margins
   const controls = useAnimation();
 
-  // Hide text after scrolling a bit
   const handleScroll = useCallback(() => {
     if (sectionRef.current) {
-      const sectionTop = sectionRef.current.getBoundingClientRect().top;
-      if (sectionTop > 0) {
-        //* 0 équivaut à la distance entre le top de la section et le haut de l'écran. On met de la marge pour prendre en compte la navbar.
+      const rect = sectionRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      // Define thresholds corresponding to your negative margins
+      const topThreshold = viewportHeight * 0.6; // 60% from top
+      const bottomThreshold = viewportHeight - viewportHeight * 0.3; // 30% from bottom, so 70% from top
+
+      if (rect.bottom < bottomThreshold || rect.top > topThreshold) {
+        // Section is outside the desired range
+        setIsInView(false);
+      } else {
+        // Section is within the desired range
+        setIsInView(true);
+      }
+
+      // Hide text after scrolling a bit
+      if (rect.top > 0) {
         setShowText(true);
       } else {
         setShowText(false);
@@ -24,15 +37,20 @@ const ResumeFAB = ({ sectionRef }) => {
   }, [sectionRef]);
 
   useEffect(() => {
+    // Initial check
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  useEffect(() => {
     if (isInView) {
       controls.start('visible');
     } else {
       controls.start('hidden');
     }
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isInView, controls, sectionRef, handleScroll]);
+  }, [isInView, controls]);
 
   const handleDownloadClick = async () => {
     if (isDownloading) return;
@@ -51,12 +69,14 @@ const ResumeFAB = ({ sectionRef }) => {
     }, 2000);
   };
 
+  // Variants for text animation
   const textVariants = {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: -10 },
   };
 
+  // Variants for width animation
   const widthVariants = {
     expanded: { width: 'auto', zIndex: 1 },
     collapsed: { width: '0px' },
