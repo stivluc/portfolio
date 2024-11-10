@@ -67,6 +67,7 @@ export const metadata = {
 export const viewport = {
   width: 'device-width',
   viewportFit: 'cover',
+  userScalable: false,
   initialScale: 1,
   shrinkToFit: false,
 };
