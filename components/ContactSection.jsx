@@ -34,7 +34,7 @@ const ContactSection = () => {
     setStatus({ submitting: true, success: false, error: '' });
 
     try {
-      const res = await fetch(`${process.env.VERCEL_URL}/api/contact`, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const ContactSection = () => {
         body: JSON.stringify(formData),
       });
 
-      if (res.status === 200) {
+      if (res.status === 201) {
         setFormData({ name: '', email: '', message: '' });
         setStatus({ submitting: false, success: true, error: '' });
 

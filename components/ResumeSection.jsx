@@ -1,8 +1,6 @@
-'use client';
-
 import React, { useState, useRef } from 'react';
 import styles from './ResumeSection.module.scss';
-import { motion, useInView, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   certifications as allCertifications,
   education,

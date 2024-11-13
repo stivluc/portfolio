@@ -1,7 +1,5 @@
-export const methods = ['POST'];
-
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import mailjet from 'node-mailjet';
 import { LRUCache } from 'lru-cache';
 import { emailSignature } from '@/config/emailSignature';
 
@@ -13,7 +11,15 @@ const rateLimiter = new LRUCache({
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request) {
-  const { name, email, message } = await request.json();
+  let formData;
+  try {
+    formData = await request.json();
+  } catch (error) {
+    console.error('Error parsing request JSON:', error);
+    return NextResponse.json({ error: 'Invalid request data.' }, { status: 400 });
+  }
+
+  const { name, email, message } = formData;
 
   if (!name || !email || !message) {
     return NextResponse.json({ error: 'Please fill in all fields.' }, { status: 400 });
@@ -33,41 +39,63 @@ export async function POST(request) {
 
   rateLimiter.set(ip, requests + 1);
 
-  const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
-    secure: process.env.EMAIL_SECURE === 'true',
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+  const mailjetClient = mailjet.apiConnect(process.env.MJ_APIKEY_PUBLIC, process.env.MJ_APIKEY_PRIVATE);
+
+  const messages = [
+    {
+      From: {
+        Email: process.env.EMAIL_FROM,
+        Name: 'Steven Lucas',
+      },
+      To: [
+        {
+          Email: 'contact@stivluc.com',
+          Name: 'Steven Lucas',
+        },
+      ],
+      Subject: `Message from ${name}`,
+      TextPart: `${message}\n\nFrom: ${email}`,
+      HTMLPart: `<p>${message}</p><p>From: ${email}</p>`,
+      ReplyTo: {
+        Email: email,
+        Name: name,
+      },
     },
-  });
-
-  try {
-    await transporter.sendMail({
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
-      to: 'contact@stivluc.com',
-      subject: `Message from ${name}`,
-      text: `${message}\n\nFrom: ${email}`,
-      html: `<p>${message}</p><p>From: ${email}</p>`,
-      replyTo: email,
-    });
-
-    await transporter.sendMail({
-      from: `"Steven Lucas" <${process.env.EMAIL_USER}>`,
-      to: email,
-      subject: 'Your message has been received',
-      text: `Hello ${name},\n\nThank you for reaching out! I have received your message and will respond as soon as possible.\n\nBest regards,\nSteven Lucas`,
-      html: `
+    {
+      From: {
+        Email: process.env.EMAIL_FROM,
+        Name: 'Steven Lucas',
+      },
+      To: [
+        {
+          Email: email,
+          Name: name,
+        },
+      ],
+      Subject: 'Your message has been received',
+      TextPart: `Hello ${name},\n\nThank you for reaching out! I have received your message and will respond as soon as possible.\n\nBest regards,\nSteven Lucas`,
+      HTMLPart: `
         <p>Hello ${name},</p>
         <p>Thank you for reaching out! I have received your message and will respond as soon as possible.</p>
         ${emailSignature}
       `,
+    },
+  ];
+
+  try {
+    const request = mailjetClient.post('send', { version: 'v3.1' }).request({
+      Messages: messages,
     });
 
-    return NextResponse.json({ message: 'Message sent successfully.' }, { status: 200 });
+    const result = await request;
+    if (result.body.Messages[0].Status === 'success') {
+      return NextResponse.json({ message: 'Message sent successfully.' }, { status: 201 });
+    } else {
+      console.error('Mailjet error:', result.body);
+      return NextResponse.json({ error: 'Failed to send message.' }, { status: 500 });
+    }
   } catch (error) {
     console.error('Error sending email:', error);
-    return NextResponse.json({ error: `Failed to send message: ${error}` }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to send message.' }, { status: 500 });
   }
 }
