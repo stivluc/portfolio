@@ -3,6 +3,9 @@ import mailjet from 'node-mailjet';
 import { LRUCache } from 'lru-cache';
 import { emailSignature } from '@/config/emailSignature';
 
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 const rateLimiter = new LRUCache({
   max: 500,
   ttl: 1000 * 60 * 60, // 1 hour
