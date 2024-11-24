@@ -54,7 +54,7 @@ export const metadata = {
     title: 'Steven Lucas | Full-Stack Engineer',
     description:
       'Portfolio of Steven Lucas, a full-stack engineer specializing in React and Next.js. Available for freelance projects.',
-    images: ['/twitter-image.jpg'],
+    images: ['/opengraph-image.jpg'],
   },
   icons: {
     icon: '/favicon.ico',
@@ -78,7 +78,7 @@ export default function RootLayout({ children }) {
       <head>
         <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
-      <body className={`${sourceSans3.variable} ${heming.variable} ${sourceSans3.className} ${heming.className}`}>
+      <body className={`${sourceSans3.variable} ${heming.variable} ${sourceSans3.className} ${heming.className} app`}>
         <Navbar />
         <main style={{ paddingTop: '80px' }}>{children}</main>
         <Footer />

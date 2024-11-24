@@ -22,7 +22,7 @@
   top: 0;
   width: 100%;
   height: auto;
-  min-height: calc(100vh + 80px); // Adjusted to use viewport height
+  min-height: calc(100% + 80px); // Adjusted to use viewport height
   object-fit: cover;
   z-index: 0;
 }
