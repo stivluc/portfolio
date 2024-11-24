@@ -36,14 +36,22 @@ const ResumeSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h3 className={styles.sectionTitle}>Education</h3>
+            <motion.h3
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className={styles.sectionTitle}
+            >
+              Education
+            </motion.h3>
             {education.map((edu, index) => (
               <motion.div
                 className={styles.item}
                 key={index}
                 initial={{ x: -50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
                 <h4 className={styles.itemTitle}>{edu.degree}</h4>
@@ -62,14 +70,22 @@ const ResumeSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h3 className={styles.sectionTitle}>Work Experience</h3>
+            <motion.h3
+              initial={{ x: 50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className={styles.sectionTitle}
+            >
+              Work Experience
+            </motion.h3>
             {experiencesToShow.map((exp, index) => (
               <motion.div
                 className={styles.item}
                 key={index}
                 initial={{ x: 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.2 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
                 <h4 className={styles.itemTitle}>{exp.position}</h4>
@@ -80,21 +96,31 @@ const ResumeSection = () => {
               </motion.div>
             ))}
             {!showAllExperiences && allExperiences.length > 3 && (
-              <a onClick={() => setShowAllExperiences(true)}>... and {allExperiences.length - 3} others</a>
+              <motion.a
+                initial={{ x: 50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true, amount: 0.5 }}
+                onClick={() => setShowAllExperiences(true)}
+              >
+                ... and {allExperiences.length - 3} others
+              </motion.a>
             )}
           </motion.div>
         </div>
 
-        <motion.div
-          className={`${styles.resumeSection} ${styles.technologiesSection}`}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <h3 className={styles.sectionTitle}>Technologies</h3>
+        <div className={`${styles.resumeSection} ${styles.technologiesSection}`}>
+          <motion.h3
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className={styles.sectionTitle}
+          >
+            Technologies
+          </motion.h3>
           <TechMarquee technologies={technologies} isMobile={isMobile} />
-        </motion.div>
+        </div>
 
         <motion.div
           className={`${styles.resumeSection} ${styles.certificationsSection}`}
@@ -103,7 +129,15 @@ const ResumeSection = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h3 className={styles.sectionTitle}>Certifications</h3>
+          <motion.h3
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className={styles.sectionTitle}
+          >
+            Certifications
+          </motion.h3>
           <motion.div
             initial={{ height: 0 }}
             animate={{ height: 'auto' }}

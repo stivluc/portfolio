@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './TechMarquee.module.scss';
 import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const TechMarquee = ({ technologies, isMobile }) => {
   return (
@@ -14,17 +15,30 @@ const TechMarquee = ({ technologies, isMobile }) => {
         style={isMobile ? { position: 'absolute', left: 0, width: '100vw' } : { height: '100px' }}
       >
         {technologies.map((tech, index) => (
-          <div className={styles.techLogo} key={index}>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className={styles.techLogo}
+            key={index}
+          >
             <Image src={tech.src} alt={tech.alt} title={tech.alt} width={60} height={60} />
             <p className={styles.techName}>{tech.alt}</p>
-          </div>
+          </motion.div>
         ))}
       </Marquee>
-      <p className={styles.text}>
+      <motion.p
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
+        className={styles.text}
+      >
         {`Frameworks, databases, and services I'm mostly used to working with.`} <br />{' '}
         {`Always keep learning to stay up to
         date!`}
-      </p>
+      </motion.p>
     </div>
   );
 };
