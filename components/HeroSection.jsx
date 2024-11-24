@@ -12,20 +12,20 @@ const HeroSection = () => {
   // Memoize sentence parts to prevent recreating array on each render
   const sentenceParts = useMemo(
     () => [
-      { text: 'Hi! ' },
-      { text: "I'm" },
-      { text: 'Steven Lucas', className: styles.name },
+      { text: `Hi! ` },
+      { text: `I'm` },
+      { text: `Steven Lucas`, className: styles.name },
       { isLineBreak: true },
-      { text: 'a' },
-      { text: 'Full-Stack Engineer', className: styles.job },
-      { text: 'from' },
-      { text: 'France.' },
+      { text: `a` },
+      { text: `Full-Stack Engineer`, className: styles.job },
+      { text: `from` },
+      { text: `France.` },
       { isLineBreak: true },
-      { text: "Let's" },
-      { text: 'build' },
-      { text: 'your' },
-      { text: 'solution' },
-      { text: 'together.' },
+      { text: `Let's` },
+      { text: `build` },
+      { text: `your` },
+      { text: `solution` },
+      { text: `together.` },
     ],
     []
   );
@@ -101,7 +101,7 @@ const HeroSection = () => {
                         display: 'inline-block',
                       }}
                     >
-                      {part.text}{' '}
+                      {part.text}
                     </motion.span>
                   );
                 })}
@@ -123,8 +123,8 @@ const HeroSection = () => {
                 transform: 'translate3d(0,0,0)',
               }}
             >
-              Driven by the challenge of finding optimized solutions to complex problems. I'm passionate about using
-              technology to make a positive impact and create real change.
+              {`Driven by the challenge of finding optimized solutions to complex problems. I'm passionate about using
+              technology to make a positive impact and create real change.`}
             </motion.p>
 
             <motion.a
