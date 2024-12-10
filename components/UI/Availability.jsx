@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './Availability.module.scss';
+import { useTranslations } from 'next-intl';
 
 const Availability = () => {
+  const t = useTranslations('availability');
+
   return (
     <motion.div
       initial={{ x: 20, opacity: 0 }}
@@ -10,9 +13,9 @@ const Availability = () => {
       transition={{ duration: 0.5, delay: 0.5 }}
       className={styles.additionalText}
     >
-      (2019 - PRESENT)
+      {t('dates')}
       <div className={styles.availability}>
-        <span className={styles.dot}></span> Available for freelance
+        <span className={styles.dot}></span> {t('status')}
       </div>
     </motion.div>
   );

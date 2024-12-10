@@ -1,37 +1,32 @@
 export const projects = [
   {
-    title: 'Next Hub',
-    description:
-      'A BI solution for GXO Logistics centralizing data from various sources. Features advanced analytics, productivity tracking, and live updates.',
+    titleKey: 'projects.nextHub.title',
+    descriptionKey: 'projects.nextHub.description',
     image: '/GXO.png',
-    noHrefText: 'Private Project',
+    noHrefTextKey: 'projects.privateProject',
   },
   {
-    title: 'Wink Monaco',
-    description:
-      'Website for an association supporting the visually impaired. Features include a donations system, e-commerce, articles, mass emailing, and more.',
+    titleKey: 'projects.winkMonaco.title',
+    descriptionKey: 'projects.winkMonaco.description',
     image: '/WinkMonaco.png',
     href: 'https://wink-monaco.mc',
   },
   {
-    title: 'Lawyer Website',
-    description:
-      'Showcase website for a lawyer, featuring presentation, contact, and services sections. It helped double her monthly cases since its launch.',
+    titleKey: 'projects.lawyer.title',
+    descriptionKey: 'projects.lawyer.description',
     image: '/ChristineLucas.png',
     href: 'https://christinelucas.fr',
   },
   {
-    title: 'BuddyGames',
-    description:
-      'Board games rental service, featuring an admin interface to manage games, orders, subscriptions, and users. Built with ReactJS & Symfony.',
+    titleKey: 'projects.buddyGames.title',
+    descriptionKey: 'projects.buddyGames.description',
     image: '/BuddyGames.png',
-    noHrefText: 'Company Closed',
+    noHrefTextKey: 'projects.companyClosed',
   },
   {
-    title: 'GamblEats',
-    description:
-      'Food ordering platform where each order gives a chance to get it free. It features three interfaces (driver, restaurant and user). Built with a microservices architecture.',
+    titleKey: 'projects.gamblEats.title',
+    descriptionKey: 'projects.gamblEats.description',
     image: '/GamblEats.png',
-    noHrefText: 'School Project',
+    noHrefTextKey: 'projects.schoolProject',
   },
 ];

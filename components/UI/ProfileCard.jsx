@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import styles from './ProfileCard.module.scss';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const ProfileCard = ({ bgColor }) => {
+  const t = useTranslations('hero');
   return (
     <div className={styles.profileWrapper}>
       <div className={styles.slices}>
@@ -57,7 +59,7 @@ const ProfileCard = ({ bgColor }) => {
           transition={{ delay: 0.1, duration: 1.2 }}
         >
           <h3>Steven Lucas</h3>
-          <p>Full-Stack Engineer</p>
+          <p>{t('role')}</p>
         </motion.div>
         <motion.p
           initial={{ y: 10, opacity: 0 }}

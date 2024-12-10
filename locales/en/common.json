@@ -1,0 +1,173 @@
+{
+  "common": {
+    "andOthers": "and {count} others"
+  },
+  "nav": {
+    "services": "Services",
+      "resume": "Resume",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "availability": {
+      "status": "Available for freelance or full-time contract",
+      "dates": "(2019 - PRESENT)"
+    },
+    "hero": {
+      "greeting": "Hi!",
+      "intro": "I'm",
+      "name": "Steven Lucas",
+      "a": "a",
+      "role": "Full-Stack Engineer",
+      "location": "from France",
+      "cta": "Let's build your solution together",
+      "seeWhatICan": "See what I can do",
+      "description": "Driven by the challenge of finding optimized solutions to complex problems. I'm passionate about using technology to make a positive impact and create real change."
+    },
+    "services": {
+      "title": "Services",
+      "webDev": {
+        "title": "Web Development",
+        "description": "Building responsive and high-performing websites tailored to your needs"
+      },
+      "mobileApps": {
+        "title": "Mobile Apps",
+        "description": "Creating user-friendly mobile applications for both iOS and Android platforms"
+      },
+      "cicd": {
+        "title": "CI/CD Setup",
+        "description": "Automating deployment pipelines to ensure faster, reliable, and consistent delivery"
+      },
+      "specificDemand": "Have a specific demand?",
+      "feelFree": "Feel free to ",
+      "sendMessage": "send a message",
+      "questionsTitle": "Common questions",
+      "faq": {
+        "timeline": {
+          "question": "What is your typical project timeline?",
+          "answer": "The timeline for a project highly depends on the complexity and scope. For example, a simple showcase website can take as little as one or two weeks, while more complex websites or applications can take 1, 2, or even several months. After our initial consultation, I'll provide a tailored timeline with key milestones to give you a clear idea of the project duration."
+        },
+        "maintenance": {
+          "question": "Do you offer ongoing maintenance and support?",
+          "answer": "Yes, I offer ongoing maintenance and support packages to ensure your website stays updated and runs smoothly. This includes updates, bug fixes, and any necessary changes as your business grows."
+        },
+        "branding": {
+          "question": "Can you work with existing brand guidelines?",
+          "answer": "Absolutely! I'm experienced in working with existing brand guidelines to ensure your website aligns with your established identity. I can seamlessly incorporate your branding while enhancing your digital presence."
+        },
+        "revisions": {
+          "question": "How do you handle revisions and feedback?",
+          "answer": "Revisions and feedback are a crucial part of the process. I typically offer a set number of revision rounds to refine the design based on your input. I ensure clear communication throughout, so your vision is brought to life effectively."
+        }
+      }
+    },
+    "resume": {
+      "title": "Resume",
+      "education": {
+        "title": "Education",
+          "master": {
+            "degree": "Master of Computer Engineering",
+            "institution": "CESI Ecole d'Ingénieurs",
+            "year": "2019 - 2024",
+            "description": "Specialized in software development and data engineering."
+          },
+          "summer": {
+            "degree": "Summer School \"From Innovation to Startup\"",
+            "institution": "University of Louisiana at Lafayette, LA",
+            "year": "June 2024",
+            "description": "Focused on startup creation and development."
+          },
+          "highschool": {
+            "degree": "High School Diploma",
+              "institution": "Lycée Hugues Capet",
+              "year": "2016 - 2018",
+            "description": "Specialized in biology."
+          }
+        },
+        "experience": {
+          "title": "Work Experience",
+            "freelance": {
+              "position": "Freelance Full-Stack Engineer",
+              "company": "Self-employed",
+              "year": "Since Dec. 2019",
+              "description": "Developed web-apps for different clients, tailored to their needs. From complex full-stack architecture to little showcase websites, see below."
+            },
+            "head": {
+              "position": "Head of Engineering Department",
+              "company": "GXO Logistics, Lesquin",
+              "year": "Sept. 2023 - Nov. 2024",
+              "description": "Managed two engineers and served as the local data referent. Developed tools to streamline logistics processes, cutting control time by 50% and reducing inventory time by 30%. Led specifications drafting, agile project management, trainings, and conducted presentations at national & European levels."
+            },
+            "louisiana": {
+              "position": "Full-Stack Engineer",
+              "company": "Informatics Research Institute, Lafayette, LA",
+              "year": "June 2023 - Sept. 2023",
+              "description": "Developed a healthcare software in VueJS to streamline audio transcription correction in hospitals. Currently deployed in Louisiana state-affiliated hospitals, the solution reduced average correction time by 50%."
+            },
+            "gxo": {
+              "position": "Full-Stack Engineer",
+              "company": "GXO Logistics, Lesquin",
+              "year": "Sept. 2021 - Sept. 2023",
+              "description": "Development of a local web app from scratch (ReactJS & Express) to centralize warehouse data from different sources. It enables comprehensive tracking of activities, productivity metrics, and access statistics with a few clicks. Saving managers over 3 hours daily on data retrieval."
+        }
+    },
+    "certifications": {
+      "title": "Certifications"
+    },
+    "technologies": {
+      "title": "Technologies",
+      "description": "Framerworks, databases and services I'm mostly used to working with.",
+      "keepLearning": "Always keep learning to stay up to date!"
+    },
+    "downloadButton": {
+      "download": "Download my resume",
+      "downloading": "Downloading...",
+      "downloaded": "Download complete!"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "intro": "Here are some of the main projects I've completed.",
+    "visit": "Visit {domain}",
+    "privateProject": "Private Project",
+    "schoolProject": "School Project",
+    "companyClosed": "Company ended activity",
+    "showMore": "Show {count} more",
+    "confidentialityNote": "Some projects are not shown due to confidentiality agreements.",
+    "addYours": "Add your project to the list!",
+    "nextHub": {
+      "title": "NextHub",
+      "description": "Internal web application for GXO Logistics. Centralizes warehouse data from various sources, enabling comprehensive tracking of activities and productivity metrics."
+    },
+    "winkMonaco": {
+      "title": "Wink Monaco",
+      "description": "Website for an association supporting the visually impaired. Features include a donations system, e-commerce, articles, mass emailing, and more."
+    },
+    "lawyer": {
+      "title": "Christine Lucas",
+      "description": "Showcase website for a lawyer, featuring presentation, contact, and services sections. It helped double her monthly cases since its launch."
+    },
+    "buddyGames": {
+      "title": "Buddy Games",
+      "description": "Board games rental service, featuring an admin interface to manage games, orders, subscriptions, and users. Built with ReactJS & Symfony."
+    },
+    "gamblEats": {
+      "title": "GamblEats",
+      "description": "Food ordering platform where each order gives a chance to get it free. It features three interfaces (driver, restaurant and user). Built with a microservices architecture."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Let's collaborate and create something amazing together. Feel free to reach out!",
+    "or": "or",
+    "phoneNumber": "+33 (0) 6 88 07 41 87",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send message",
+      "sending": "Sending...",
+      "sent": "Message sent!",
+      "error": "Error sending message"
+    }
+  }
+}

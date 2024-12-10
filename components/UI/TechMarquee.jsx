@@ -3,8 +3,11 @@ import styles from './TechMarquee.module.scss';
 import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 const TechMarquee = ({ technologies, isMobile }) => {
+  const t = useTranslations();
+
   return (
     <div className={styles.marqueeSection}>
       <Marquee
@@ -35,9 +38,7 @@ const TechMarquee = ({ technologies, isMobile }) => {
         viewport={{ once: true, amount: 0.3 }}
         className={styles.text}
       >
-        {`Frameworks, databases, and services I'm mostly used to working with.`} <br />{' '}
-        {`Always keep learning to stay up to
-        date!`}
+        {t('resume.technologies.description')} <br /> {t('resume.technologies.keepLearning')}
       </motion.p>
     </div>
   );

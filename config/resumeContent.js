@@ -1,52 +1,48 @@
 export const education = [
   {
-    degree: 'Master of Computer Engineering',
-    institution: `CESI Ecole d'Ingénieurs`,
-    year: '2019 - 2024',
-    description: 'Specialized in software development and data engineering.',
+    degreeKey: 'resume.education.master.degree',
+    institutionKey: 'resume.education.master.institution',
+    yearKey: 'resume.education.master.year',
+    descriptionKey: 'resume.education.master.description',
   },
   {
-    degree: 'Summer School "From Innovation to Startup"',
-    institution: 'University of Louisiana at Lafayette, LA',
-    year: 'June 2024',
-    description: 'Focused on startup creation and development.',
+    degreeKey: 'resume.education.summer.degree',
+    institutionKey: 'resume.education.summer.institution',
+    yearKey: 'resume.education.summer.year',
+    descriptionKey: 'resume.education.summer.description',
   },
   {
-    degree: 'High School Diploma',
-    institution: 'Lycée Hugues Capet',
-    year: '2016 - 2018',
-    description: 'Specialized in biology.',
+    degreeKey: 'resume.education.highschool.degree',
+    institutionKey: 'resume.education.highschool.institution',
+    yearKey: 'resume.education.highschool.year',
+    descriptionKey: 'resume.education.highschool.description',
   },
 ];
 
 export const experiences = [
   {
-    position: 'Freelance Full-Stack Engineer',
-    company: 'Self-employed',
-    year: 'Since Dec. 2019',
-    description:
-      'Developed web-apps for different clients, tailored to their needs. From complex full-stack architecture to little showcase websites, see below.',
+    positionKey: 'resume.experience.freelance.position',
+    companyKey: 'resume.experience.freelance.company',
+    yearKey: 'resume.experience.freelance.year',
+    descriptionKey: 'resume.experience.freelance.description',
   },
   {
-    position: 'Head of Engineering Department',
-    company: 'GXO Logistics, Lesquin',
-    year: 'Sept. 2023 - Nov. 2024',
-    description:
-      'Managed two engineers and served as the local data referent. Developed tools to streamline logistics processes, cutting control time by 50% and reducing inventory time by 30%. Led specifications drafting, agile project management, trainings, and conducted presentations at national & European levels.',
+    positionKey: 'resume.experience.head.position',
+    companyKey: 'resume.experience.head.company',
+    yearKey: 'resume.experience.head.year',
+    descriptionKey: 'resume.experience.head.description',
   },
   {
-    position: 'Full-Stack Engineer',
-    company: 'Informatics Research Institute, Lafayette, LA',
-    year: 'June 2023 - Sept. 2023',
-    description:
-      'Developed a healthcare software in VueJS to streamline audio transcription correction in hospitals. Currently deployed in Louisiana state-affiliated hospitals, the solution reduced average correction time by 50%.',
+    positionKey: 'resume.experience.louisiana.position',
+    companyKey: 'resume.experience.louisiana.company',
+    yearKey: 'resume.experience.louisiana.year',
+    descriptionKey: 'resume.experience.louisiana.description',
   },
   {
-    position: 'Full-Stack Engineer',
-    company: 'GXO Logistics, Lesquin',
-    year: 'Sept. 2021 - Sept. 2023',
-    description:
-      'Development of a local web app from scratch (ReactJS & Express) to centralize warehouse data from different sources. It enables comprehensive tracking of activities, productivity metrics, and access statistics with a few clicks. Saving managers over 3 hours daily on data retrieval. ',
+    positionKey: 'resume.experience.gxo.position',
+    companyKey: 'resume.experience.gxo.company',
+    yearKey: 'resume.experience.gxo.year',
+    descriptionKey: 'resume.experience.gxo.description',
   },
 ];
 

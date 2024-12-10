@@ -7,8 +7,10 @@ import { questions, services } from '@/config/servicesContent';
 import SectionTitle from './UI/SectionTitle';
 import Image from 'next/image';
 import { handleScrollToSection } from '@/utils/handleScrollToSection';
+import { useTranslations } from 'next-intl';
 
 const ServicesSection = () => {
+  const t = useTranslations('services');
   const isMobile = useMediaQuery({ query: '(max-width: 1000px)' });
 
   const handleCtaClick = (e) => {
@@ -19,7 +21,7 @@ const ServicesSection = () => {
     <LazyMotion features={domAnimation}>
       <section className={`sectionContainer bgBackground`} id='services'>
         <div className={`section`}>
-          <SectionTitle title={'Services'} align='left' />
+          <SectionTitle title={t('title')} align='left' />
           <div className={styles.cardsContainer}>
             {services.map((service, index) => (
               <motion.div
@@ -38,8 +40,8 @@ const ServicesSection = () => {
                   className={styles.cardImage}
                   priority
                 />
-                <h3 className={styles.cardTitle}>{service.title}</h3>
-                <p className={styles.cardDescription}>{service.description}</p>
+                <h3 className={styles.cardTitle}>{t(`${service.key}.title`)}</h3>
+                <p className={styles.cardDescription}>{t(`${service.key}.description`)}</p>
               </motion.div>
             ))}
           </div>
@@ -50,10 +52,10 @@ const ServicesSection = () => {
             viewport={{ once: true, amount: 0.5 }}
             className={`secondary alignCenter`}
           >
-            Have a specific demand? <br />
-            Feel free to{' '}
+            {t('specificDemand')} <br />
+            {t('feelFree')}
             <a href='#contact' onClick={handleCtaClick}>
-              send a message
+              {t('sendMessage')}
             </a>
             .
           </motion.p>
@@ -64,7 +66,7 @@ const ServicesSection = () => {
             viewport={{ once: true, amount: 0.5 }}
             className={styles.questionsTitle}
           >
-            Common questions
+            {t('questionsTitle')}
           </motion.h3>
           {questions.map((q, i) => (
             <FAQItem {...q} key={i} />

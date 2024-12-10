@@ -7,8 +7,11 @@ import Image from 'next/image';
 import { navSections } from '@/config/navSections';
 import { toKebabCase } from '@/utils/toKebabCase';
 import { socialIcons } from '@/config/socialIcons';
+import { useTranslations } from 'next-intl';
 
 const Navbar = () => {
+  const t = useTranslations();
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -86,8 +89,8 @@ const Navbar = () => {
         <ul className={styles.desktopMenu}>
           {navSections.map((section) => (
             <li key={section}>
-              <a href={`#${toKebabCase(section)}`} onClick={(e) => handleNavLinkClick(e, section)}>
-                {section}
+              <a href={`#${toKebabCase(section.split('.')[1])}`} onClick={(e) => handleNavLinkClick(e, section)}>
+                {t(section)}
               </a>
             </li>
           ))}
@@ -130,8 +133,8 @@ const Navbar = () => {
           <ul>
             {navSections.map((section) => (
               <li key={section}>
-                <a href={`#${toKebabCase(section)}`} onClick={(e) => handleNavLinkClick(e, section)}>
-                  {section}
+                <a href={`#${toKebabCase(section.split('.')[1])}`} onClick={(e) => handleNavLinkClick(e, section)}>
+                  {t(section)}
                 </a>
               </li>
             ))}

@@ -1,5 +1,8 @@
-export const toKebabCase = (str) =>
-  str
-    .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .replace(/\s+/g, '-')
-    .toLowerCase();
+export const toKebabCase = (str) => {
+  // Si c'est une clé de traduction (contient un point), prendre la dernière partie
+  const text = str.includes('.') ? str.split('.').pop() : str;
+  return text
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => '-' + chr)
+    .replace(/^-+|-+$/g, '');
+};

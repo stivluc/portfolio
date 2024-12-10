@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import styles from './ResumeFAB.module.scss';
+import { useTranslations } from 'next-intl';
 
 const ResumeFAB = ({ sectionRef }) => {
+  const t = useTranslations('resume.downloadButton');
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadComplete, setDownloadComplete] = useState(false);
   const [showText, setShowText] = useState(true);
@@ -169,7 +171,7 @@ const ResumeFAB = ({ sectionRef }) => {
                 transition={{ duration: 0.3 }}
                 style={{ textDecoration: 'none' }}
               >
-                {isDownloading ? 'Downloading...' : downloadComplete ? 'Downloaded!' : 'Download my resume'}
+                {isDownloading ? t('downloading') : downloadComplete ? t('downloaded') : t('download')}
               </motion.a>
             )}
           </AnimatePresence>

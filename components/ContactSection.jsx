@@ -7,8 +7,10 @@ import SectionTitle from './UI/SectionTitle';
 import ProfileCard from './UI/ProfileCard';
 import Availability from './UI/Availability';
 import { contacts } from '@/config/contacts';
+import { useTranslations } from 'next-intl';
 
 const ContactSection = () => {
+  const t = useTranslations('contact');
   const [isMounted, setIsMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -62,7 +64,7 @@ const ContactSection = () => {
   return (
     <section className={'sectionContainer'} id='contact'>
       <div className={'section'}>
-        <SectionTitle title={'Contact'} align='right' />
+        <SectionTitle title={t('title')} align='right' />
         <div className={styles.contactGrid}>
           {/* Left Side */}
           <div className={styles.contactDetails}>
@@ -87,8 +89,7 @@ const ContactSection = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className={styles.description}
               >
-                {`Let's collaborate and create something amazing together.`}
-                {` Feel free to reach out!`}
+                {t('intro')}
               </motion.p>
               {!isMounted || !isMobile ? (
                 <motion.div className={styles.contactInfo}>
@@ -141,7 +142,7 @@ const ContactSection = () => {
             <div className={styles.formCard}>
               <form className={styles.contactForm} onSubmit={handleSubmit}>
                 <div className={styles.formGroup}>
-                  <label htmlFor='name'>Name</label>
+                  <label htmlFor='name'>{t('form.name')}</label>
                   <input
                     type='text'
                     name='name'
@@ -152,7 +153,7 @@ const ContactSection = () => {
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label htmlFor='email'>Email</label>
+                  <label htmlFor='email'>{t('form.email')}</label>
                   <input
                     type='email'
                     name='email'
@@ -163,7 +164,7 @@ const ContactSection = () => {
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label htmlFor='message'>Message</label>
+                  <label htmlFor='message'>{t('form.message')}</label>
                   <textarea
                     name='message'
                     id='message'
@@ -182,50 +183,27 @@ const ContactSection = () => {
                 >
                   <AnimatePresence initial={false} mode='wait'>
                     {status.submitting ? (
-                      <motion.span
-                        key='loading'
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className={styles.buttonContent}
-                      >
-                        Sending...
-                        <motion.div
-                          className={styles.loader}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                        ></motion.div>
+                      <motion.span key='loading' className={styles.buttonContent}>
+                        {t('form.sending')}
+                        <motion.div className={styles.loader}></motion.div>
                       </motion.span>
                     ) : status.success ? (
-                      <motion.span
-                        key='success'
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className={styles.buttonContent}
-                      >
-                        Message sent!
+                      <motion.span key='success' className={styles.buttonContent}>
+                        {t('form.sent')}
                         <FaCheckCircle className={styles.icon} aria-hidden='true' />
                       </motion.span>
                     ) : (
-                      <motion.span
-                        key='default'
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className={styles.buttonContent}
-                      >
-                        Send Message
+                      <motion.span key='default' className={styles.buttonContent}>
+                        {t('form.send')}
                         <FiSend className={styles.sendIcon} aria-hidden='true' />
                       </motion.span>
                     )}
                   </AnimatePresence>
                 </button>
                 {status.error && (
-                  <motion.p className={styles.errorMessage} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                  <motion.p className={styles.errorMessage}>
                     <FaTimesCircle aria-hidden='true' />
-                    Something went wrong. Please try again.
+                    {t('form.error')}
                   </motion.p>
                 )}
               </form>

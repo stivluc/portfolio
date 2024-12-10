@@ -7,27 +7,24 @@ import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { handleScrollToSection } from '@/utils/handleScrollToSection';
 import Availability from './UI/Availability';
+import { useTranslations } from 'next-intl';
 
 const HeroSection = () => {
+  const t = useTranslations('hero');
   // Memoize sentence parts to prevent recreating array on each render
   const sentenceParts = useMemo(
     () => [
-      { text: `Hi! ` },
-      { text: `I'm` },
-      { text: `Steven Lucas`, className: styles.name },
+      { text: `${t('greeting')} ` },
+      { text: `${t('intro')}` },
+      { text: `${t('name')}`, className: styles.name },
       { isLineBreak: true },
-      { text: `a` },
-      { text: `Full-Stack Engineer`, className: styles.job },
-      { text: `from` },
-      { text: `France.` },
+      { text: `${t('a')}` },
+      { text: `${t('role')}`, className: styles.job },
+      { text: `${t('location')}` },
       { isLineBreak: true },
-      { text: `Let's` },
-      { text: `build` },
-      { text: `your` },
-      { text: `solution` },
-      { text: `together.` },
+      { text: `${t('cta')}` },
     ],
-    []
+    [t]
   );
 
   // Memoize animations for better performance
@@ -123,8 +120,7 @@ const HeroSection = () => {
                 transform: 'translate3d(0,0,0)',
               }}
             >
-              {`Driven by the challenge of finding optimized solutions to complex problems. I'm passionate about using
-              technology to make a positive impact and create real change.`}
+              {t('description')}
             </motion.p>
 
             <motion.a
@@ -140,7 +136,7 @@ const HeroSection = () => {
                 transform: 'translate3d(0,0,0)',
               }}
             >
-              See what I can do <FiArrowUpRight className={styles.arrowIcon} />
+              {t('seeWhatICan')} <FiArrowUpRight className={styles.arrowIcon} />
             </motion.a>
           </div>
 

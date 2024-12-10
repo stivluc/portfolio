@@ -12,8 +12,10 @@ import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
 import SectionTitle from './UI/SectionTitle';
 import ResumeFAB from './UI/ResumeFAB';
+import { useTranslations } from 'next-intl';
 
 const ResumeSection = () => {
+  const t = useTranslations();
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const [showAllExperiences, setShowAllExperiences] = useState(false);
   const [showAllCertifications, setShowAllCertifications] = useState(false);
@@ -26,7 +28,7 @@ const ResumeSection = () => {
   return (
     <section className={`sectionContainer bgMuted`} id='resume' ref={sectionRef}>
       <div className={`section`}>
-        <SectionTitle title={'Resume'} align='right' />
+        <SectionTitle title={t('resume.title')} align='right' />
 
         <div className={styles.eduExpContainer}>
           <motion.div
@@ -43,7 +45,7 @@ const ResumeSection = () => {
               viewport={{ once: true, amount: 0.3 }}
               className={styles.sectionTitle}
             >
-              Education
+              {t('resume.education.title')}
             </motion.h3>
             {education.map((edu, index) => (
               <motion.div
@@ -54,11 +56,11 @@ const ResumeSection = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
-                <h4 className={styles.itemTitle}>{edu.degree}</h4>
+                <h4 className={styles.itemTitle}>{t(edu.degreeKey)}</h4>
                 <p className={styles.itemInstitution}>
-                  {edu.institution} | {edu.year}
+                  {t(edu.institutionKey)} | {t(edu.yearKey)}
                 </p>
-                <p className={styles.itemDescription}>{edu.description}</p>
+                <p className={styles.itemDescription}>{t(edu.descriptionKey)}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -77,7 +79,7 @@ const ResumeSection = () => {
               viewport={{ once: true, amount: 0.5 }}
               className={styles.sectionTitle}
             >
-              Work Experience
+              {t('resume.experience.title')}
             </motion.h3>
             {experiencesToShow.map((exp, index) => (
               <motion.div
@@ -88,11 +90,11 @@ const ResumeSection = () => {
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.2 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
-                <h4 className={styles.itemTitle}>{exp.position}</h4>
+                <h4 className={styles.itemTitle}>{t(exp.positionKey)}</h4>
                 <p className={styles.itemInstitution}>
-                  {exp.company} | {exp.year}
+                  {t(exp.companyKey)} | {t(exp.yearKey)}
                 </p>
-                <p className={styles.itemDescription}>{exp.description}</p>
+                <p className={styles.itemDescription}>{t(exp.descriptionKey)}</p>
               </motion.div>
             ))}
             {!showAllExperiences && allExperiences.length > 3 && (
@@ -103,7 +105,7 @@ const ResumeSection = () => {
                 viewport={{ once: true, amount: 0.5 }}
                 onClick={() => setShowAllExperiences(true)}
               >
-                ... and {allExperiences.length - 3} others
+                ... {t('common.andOthers', { count: allExperiences.length - 3 })}
               </motion.a>
             )}
           </motion.div>
@@ -117,7 +119,7 @@ const ResumeSection = () => {
             viewport={{ once: true, amount: 0.3 }}
             className={styles.sectionTitle}
           >
-            Technologies
+            {t('resume.technologies.title')}
           </motion.h3>
           <TechMarquee technologies={technologies} isMobile={isMobile} />
         </div>
@@ -136,7 +138,7 @@ const ResumeSection = () => {
             viewport={{ once: true, amount: 0.3 }}
             className={styles.sectionTitle}
           >
-            Certifications
+            {t('resume.certifications.title')}
           </motion.h3>
           <motion.div
             initial={{ height: 0 }}
@@ -185,7 +187,9 @@ const ResumeSection = () => {
             })}
           </motion.div>
           {!showAllCertifications && allCertifications.length > 3 && (
-            <a onClick={() => setShowAllCertifications(true)}>... and {allCertifications.length - 3} others</a>
+            <a onClick={() => setShowAllCertifications(true)}>
+              ... {t('common.andOthers', { count: allCertifications.length - 3 })}
+            </a>
           )}
         </motion.div>
         <ResumeFAB sectionRef={sectionRef} isMobile={isMobile} />

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './FAQitem.module.scss';
+import { useTranslations } from 'next-intl';
 
-const FAQItem = ({ index, question, answer }) => {
+const FAQItem = ({ questionKey, answerKey, index }) => {
+  const t = useTranslations();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => setIsOpen(!isOpen);
@@ -23,7 +25,7 @@ const FAQItem = ({ index, question, answer }) => {
       >
         <div>
           <motion.span className={styles.questionIndex}>{`0${index}/`}</motion.span>
-          <motion.span className={styles.question}>{question}</motion.span>
+          <motion.span className={styles.question}>{t(questionKey)}</motion.span>
         </div>
         <motion.div
           className={styles.iconWrapper}
@@ -43,7 +45,7 @@ const FAQItem = ({ index, question, answer }) => {
             exit={{ height: 0, marginTop: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
           >
-            {answer}
+            {t(answerKey)}
           </motion.div>
         )}
       </AnimatePresence>

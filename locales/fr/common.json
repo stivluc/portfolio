@@ -1,0 +1,173 @@
+{
+  "common": {
+    "andOthers": "et {count} autres"
+  },
+  "nav": {
+    "services": "Services",
+    "resume": "Parcours",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "availability": {
+    "status": "Disponible pour freelance ou CDI",
+    "dates": "(2019 - PRESENT)"
+  },
+  "hero": {
+    "greeting": "Hello!",
+    "intro": "Je suis",
+    "name": "Steven Lucas",
+    "a": "un",
+    "role": "Ingénieur Full-Stack",
+    "location": "de Lille.",
+    "cta": "Donnons vie à votre projet.",
+    "seeWhatICan": "En savoir plus sur moi",
+    "description": "Motivé par le défi de trouver des solutions optimisées à des problèmes complexes. Je suis passionné par le développement, ayant pour but d'avoir un réel impact positif."
+  },
+  "services": {
+    "title": "Services",
+    "webDev": {
+      "title": "Développement Web",
+      "description": "Création de sites web réactifs et performants adaptés à vos besoins"
+    },
+    "mobileApps": {
+      "title": "App Mobiles",
+      "description": "Création d'applications mobiles user-friendly pour iOS et Android"
+    },
+    "cicd": {
+      "title": "Configuration CI/CD",
+      "description": "Automatisation des pipelines d'intégration et de déploiement continus"
+    },
+    "specificDemand": "Vous avez une demande spécifique ?",
+    "feelFree": "N'hésitez pas à",
+    "sendMessage": " me contacter",
+    "questionsTitle": "Questions fréquentes",
+    "faq": {
+      "timeline": {
+        "question": "Quelle est la durée typique d'un projet ?",
+        "answer": "La durée d'un projet dépend fortement de sa complexité et de son envergure. Par exemple, un site vitrine simple peut prendre une à deux semaines, tandis que des sites ou applications plus complexes peuvent prendre 1, 2, voire plusieurs mois. Après notre consultation initiale, je fournirai un calendrier personnalisé avec les étapes clés pour vous donner une idée précise de la durée du projet."
+      },
+      "maintenance": {
+        "question": "Proposez-vous une maintenance et un support continus ?",
+        "answer": "Oui, je propose des forfaits de maintenance et de support continus pour garantir que votre site reste à jour et fonctionne parfaitement. Cela inclut les mises à jour, les corrections de bugs et les modifications nécessaires à mesure que votre entreprise se développe."
+      },
+      "branding": {
+        "question": "Pouvez-vous travailler avec une charte graphique existante ?",
+        "answer": "Absolument ! Je suis expérimenté dans le travail avec des chartes graphiques existantes pour garantir que votre site web s'aligne sur votre identité établie. Je peux intégrer harmonieusement votre image de marque tout en améliorant votre présence numérique."
+      },
+      "revisions": {
+        "question": "Comment gérez-vous les révisions et les retours ?",
+        "answer": "Les révisions et les retours sont une partie cruciale du processus. Je propose généralement un nombre défini de cycles de révision pour affiner le design en fonction de vos retours. J'assure une communication claire tout au long du processus pour que votre vision soit réalisée efficacement."
+      }
+    }
+  },
+  "resume": {
+    "title": "Parcours",
+    "education": {
+      "title": "Scolaire",
+      "master": {
+        "degree": "Diplôme d'Ingénieur en Informatique",
+        "institution": "CESI École d'Ingénieurs",
+        "year": "2019 - 2024",
+        "description": "Spécialisation en développement logiciel et data engineering"
+      },
+      "summer": {
+        "degree": "Summer School \"From Innovation to Startup\"",
+        "institution": "University of Louisiana at Lafayette, LA",
+        "year": "Juin 2024",
+        "description": "Programme international axé sur la création et le développement d'entreprise"
+      },
+      "highschool": {
+        "degree": "Baccalauréat Scientifique",
+        "institution": "Lycée Hugues Capet",
+        "year": "2016 - 2018",
+        "description": "Option Sciences de la Vie et de la Terre"
+      }
+    },
+    "experience": {
+      "title": "Professionnel",
+      "freelance": {
+        "position": "Freelance Ingénieur Full-Stack",
+        "company": "Auto-entrepreneur",
+        "year": "Depuis Déc. 2019",
+        "description": "Développement de solutions web et mobiles sur mesure pour divers clients. De sites vitrines à des applications complexes, voir ci-dessous."
+      },
+      "head": {
+        "position": "Responsable du Département Ingénierie",
+        "company": "GXO Logistics, Lesquin",
+        "year": "Sept. 2023 - Déc. 2024",
+        "description": "Supervision de trois ingénieurs. Référent data local. Développement de solutions internes pour optimiser les processus logistiques, réduisant le temps de contrôle de 50% et le temps d'inventaire de 30%. Rédaction technique, gestion de projet agile, formation, et présentations aux niveaux national et européen."
+      },
+      "louisiana": {
+        "position": "Ingénieur Full-Stack",
+        "company": "Institut de Recherche en Informatique, Lafayette, LA",
+        "year": "Juin 2023 - Sept. 2023",
+        "description": "Développement d'une solution web dans le milieu hospitalier pour optimiser la correction des transcriptions audio. Actuellement déployée dans les hôpitaux affiliés à l'état de Louisiane, la solution a permis de réduire de 50% le temps de correction moyen."
+      },
+      "gxo": {
+        "position": "Ingénieur Full-Stack",
+        "company": "GXO Logistics, Lesquin",
+        "year": "Sept. 2021 - Sept. 2023",
+        "description": "Développement d'une web app locale from scratch pour centraliser les données de l'entrepôt, de différentes sources. Elle permet un suivi complet des activités, des métriques de productivité, et un accès aux statistiques détaillées en quelques clics, faisant gagner plusieurs heures par jour aux responsables."
+      }
+      },
+    "certifications": {
+      "title": "Certifications"
+    },
+    "technologies": {
+      "title": "Technologies",
+      "description": "Framerworks, bases de données et services avec lesquels j'ai l'habitude de travailler.",
+      "keepLearning": "Toujours apprendre pour rester au point sur les nouvelles techs!"
+    },
+    "downloadButton": {
+      "download": "Télécharger mon CV",
+      "downloading": "Téléchargement...",
+      "downloaded": "Téléchargement terminé!"
+    }
+  },
+  "projects": {
+    "title": "Projets",
+    "intro": "Voici quelques-uns des principaux projets que j'ai réalisés.",
+    "visit": "Visiter {domain}",
+    "privateProject": "Projet privé",
+    "schoolProject": "Projet scolaire",
+    "companyClosed": "Activité arrêtée",
+    "showMore": "Voir {count} de plus",
+    "confidentialityNote": "Certains projets ne sont pas affichés en raison d'accords de confidentialité.",
+    "addYours": "Ajoutez votre projet à la liste !",
+    "nextHub": {
+      "title": "NextHub",
+      "description": "Application web interne pour GXO Logistics. Centralise les données d'entrepôt de différentes sources, permettant un suivi complet des activités et des métriques de productivité."
+    },
+    "winkMonaco": {
+      "title": "Wink Monaco",
+      "description": "Site web pour une association soutenant les malvoyants. Comprend un système de dons, e-commerce, articles, envoi d'emails en masse, et plus encore."
+    },
+    "lawyer": {
+      "title": "Christine Lucas",
+      "description": "Site vitrine pour une avocate, avec présentation, contact et sections services. A permis de doubler ses dossiers mensuels depuis son lancement."
+    },
+    "buddyGames": {
+      "title": "Buddy Games",
+      "description": "Service de location de jeux de société, avec une interface admin pour gérer les jeux, commandes, abonnements et utilisateurs. Développé avec ReactJS & Symfony."
+    },
+    "gamblEats": {
+      "title": "GamblEats",
+      "description": "Plateforme de commande de repas où chaque commande donne une chance d'être remboursée. Elle comprend trois interfaces (livreur, restaurant et utilisateur). Construite avec une architecture microservices."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Travaillons ensemble et faisons de votre idée une superbe app ! N'hésitez pas à me contacter.",
+    "or": "ou",
+    "phoneNumber": "06 88 07 41 87",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "message": "Message",
+      "send": "Envoyer",
+      "sending": "Envoi...",
+      "sent": "Message envoyé !",
+      "error": "Erreur lors de l'envoi"
+    }
+  }
+}

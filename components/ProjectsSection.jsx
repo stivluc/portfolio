@@ -5,8 +5,10 @@ import { projects } from '@/config/projectsContent';
 import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
 import Button from './UI/Button';
+import { useTranslations } from 'next-intl';
 
 const ProjectsSection = () => {
+  const t = useTranslations();
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -32,8 +34,8 @@ const ProjectsSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           className={'sectionTitle alignLeft'}
         >
-          Projects
-          <span>Projects</span>
+          {t('projects.title')}
+          <span>{t('projects.title')}</span>
         </motion.h2>
         <motion.p
           initial={{ y: 30, opacity: 0 }}
@@ -42,7 +44,7 @@ const ProjectsSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           className={styles.introText}
         >
-          {`Here are some of the main projects I've completed.`}
+          {t('projects.intro')}
         </motion.p>
         <div className={styles.projectsGrid}>
           {displayedProjects.map((project, index) => (
@@ -50,7 +52,7 @@ const ProjectsSection = () => {
               className={`card`}
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.4, delay: index * 0.2 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
               viewport={{ once: true, amount: 0.5 }}
               key={index}
               onClick={() => {
@@ -62,17 +64,16 @@ const ProjectsSection = () => {
                 <div className={styles.imageWrapper}>
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={t(project.titleKey)}
                     width={400}
                     height={300}
                     className={styles.projectImage}
                     priority
                   />
                 </div>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
-                <p className={styles.projectDescription}>{project.description}</p>
+                <h3 className={styles.projectTitle}>{t(project.titleKey)}</h3>
+                <p className={styles.projectDescription}>{t(project.descriptionKey)}</p>
 
-                {/* Use the Button component */}
                 <Button
                   variant='outlined'
                   href={project.href}
@@ -81,15 +82,17 @@ const ProjectsSection = () => {
                   style={{ margin: 'auto 1.2rem 1rem', textDecoration: 'none' }}
                 >
                   {project.href
-                    ? project.hrefText || `Visit ${new URL(project.href).hostname}`
-                    : project.noHrefText || 'Not Online'}
+                    ? project.hrefText || t('projects.visit', { domain: new URL(project.href).hostname })
+                    : t(project.noHrefTextKey)}
                 </Button>
               </div>
             </motion.div>
           ))}
         </div>
         {isMobile && !showAllProjects && projects.length > 2 && (
-          <motion.a onClick={() => setShowAllProjects(true)}>... and {projects.length - 2} more</motion.a>
+          <motion.a onClick={() => setShowAllProjects(true)}>
+            {t('projects.showMore', { count: projects.length - 2 })}
+          </motion.a>
         )}
         <motion.p
           initial={{ y: 30, opacity: 0 }}
@@ -98,9 +101,9 @@ const ProjectsSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           className={styles.note}
         >
-          Due to client confidentiality, some projects are not displayed.
+          {t('projects.confidentialityNote')}
           <br />
-          Add your project to the list!
+          {t('projects.addYours')}
         </motion.p>
       </div>
     </section>
