@@ -37,25 +37,25 @@
       "title": "Configuration CI/CD",
       "description": "Automatisation des pipelines d'intégration et de déploiement continus"
     },
-    "specificDemand": "Vous avez une demande spécifique ?",
+    "specificDemand": "Vous avez une demande spécifique?",
     "feelFree": "N'hésitez pas à",
     "sendMessage": " me contacter",
     "questionsTitle": "Questions fréquentes",
     "faq": {
       "timeline": {
-        "question": "Quelle est la durée typique d'un projet ?",
+        "question": "Quelle est la durée typique d'un projet?",
         "answer": "La durée d'un projet dépend fortement de sa complexité et de son envergure. Par exemple, un site vitrine simple peut prendre une à deux semaines, tandis que des sites ou applications plus complexes peuvent prendre 1, 2, voire plusieurs mois. Après notre consultation initiale, je fournirai un calendrier personnalisé avec les étapes clés pour vous donner une idée précise de la durée du projet."
       },
       "maintenance": {
-        "question": "Proposez-vous une maintenance et un support continus ?",
+        "question": "Proposez-vous une maintenance et un support continus?",
         "answer": "Oui, je propose des forfaits de maintenance et de support continus pour garantir que votre site reste à jour et fonctionne parfaitement. Cela inclut les mises à jour, les corrections de bugs et les modifications nécessaires à mesure que votre entreprise se développe."
       },
       "branding": {
-        "question": "Pouvez-vous travailler avec une charte graphique existante ?",
+        "question": "Pouvez-vous travailler avec une charte graphique existante?",
         "answer": "Absolument ! Je suis expérimenté dans le travail avec des chartes graphiques existantes pour garantir que votre site web s'aligne sur votre identité établie. Je peux intégrer harmonieusement votre image de marque tout en améliorant votre présence numérique."
       },
       "revisions": {
-        "question": "Comment gérez-vous les révisions et les retours ?",
+        "question": "Comment gérez-vous les révisions et les retours?",
         "answer": "Les révisions et les retours sont une partie cruciale du processus. Je propose généralement un nombre défini de cycles de révision pour affiner le design en fonction de vos retours. J'assure une communication claire tout au long du processus pour que votre vision soit réalisée efficacement."
       }
     }
@@ -133,7 +133,7 @@
     "companyClosed": "Activité arrêtée",
     "showMore": "Voir {count} de plus",
     "confidentialityNote": "Certains projets ne sont pas affichés en raison d'accords de confidentialité.",
-    "addYours": "Ajoutez votre projet à la liste !",
+    "addYours": "Ajoutez votre projet à la liste!",
     "nextHub": {
       "title": "NextHub",
       "description": "Application web interne pour GXO Logistics. Centralise les données d'entrepôt de différentes sources, permettant un suivi complet des activités et des métriques de productivité."
@@ -166,7 +166,7 @@
       "message": "Message",
       "send": "Envoyer",
       "sending": "Envoi...",
-      "sent": "Message envoyé !",
+      "sent": "Message envoyé!",
       "error": "Erreur lors de l'envoi"
     }
   }
