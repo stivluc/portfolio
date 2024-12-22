@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import styles from './ResumeFAB.module.scss';
 import { useTranslations } from 'next-intl';
@@ -12,24 +12,23 @@ const ResumeFAB = ({ sectionRef }) => {
 
   const controls = useAnimation();
 
+  // 1. Hidden anchor ref for triggering the download
+  const hiddenDownloadLinkRef = useRef(null);
+
   const handleScroll = useCallback(() => {
     if (sectionRef.current) {
       const rect = sectionRef.current.getBoundingClientRect();
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
-      // Define thresholds corresponding to your negative margins
-      const topThreshold = viewportHeight * 0.6; // 60% from top
-      const bottomThreshold = viewportHeight - viewportHeight * 0.3; // 30% from bottom, so 70% from top
+      const topThreshold = viewportHeight * 0.6;
+      const bottomThreshold = viewportHeight - viewportHeight * 0.3;
 
       if (rect.bottom < bottomThreshold || rect.top > topThreshold) {
-        // Section is outside the desired range
         setIsInView(false);
       } else {
-        // Section is within the desired range
         setIsInView(true);
       }
 
-      // Hide text after scrolling a bit
       if (rect.top > 0) {
         setShowText(true);
       } else {
@@ -39,9 +38,7 @@ const ResumeFAB = ({ sectionRef }) => {
   }, [sectionRef]);
 
   useEffect(() => {
-    // Initial check
     handleScroll();
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
@@ -54,6 +51,13 @@ const ResumeFAB = ({ sectionRef }) => {
     }
   }, [isInView, controls]);
 
+  // 2. Trigger the actual download via the hidden anchor
+  const triggerDownload = () => {
+    if (hiddenDownloadLinkRef.current) {
+      hiddenDownloadLinkRef.current.click();
+    }
+  };
+
   const handleDownloadClick = async () => {
     if (isDownloading) return;
 
@@ -64,6 +68,9 @@ const ResumeFAB = ({ sectionRef }) => {
 
     setIsDownloading(false);
     setDownloadComplete(true);
+
+    // Trigger the real file download
+    triggerDownload();
 
     // Reset downloadComplete after a delay
     setTimeout(() => {
@@ -97,6 +104,16 @@ const ResumeFAB = ({ sectionRef }) => {
       onHoverStart={() => setShowText(true)}
       onHoverEnd={handleScroll}
     >
+      <a
+        href='/resumeStevenLucas.pdf'
+        download
+        ref={hiddenDownloadLinkRef}
+        style={{ display: 'none' }}
+        aria-hidden='true'
+      >
+        Hidden Download Link
+      </a>
+
       <button
         className={`${styles.fabButton} ${isDownloading ? styles.downloading : ''} ${
           downloadComplete ? styles.downloadComplete : ''
@@ -107,6 +124,7 @@ const ResumeFAB = ({ sectionRef }) => {
         <span className={styles.spark}></span>
         <span className={styles.spark}></span>
         <span className={styles.backdrop}></span>
+
         {downloadComplete ? (
           <svg
             className={`${styles.fabSvg} ${styles.downloadCompleteIcon}`}
@@ -150,7 +168,7 @@ const ResumeFAB = ({ sectionRef }) => {
             />
           </svg>
         )}
-        {/* Text with animation */}
+
         <motion.div
           initial='collapsed'
           animate={showText ? 'expanded' : 'collapsed'}
@@ -159,20 +177,17 @@ const ResumeFAB = ({ sectionRef }) => {
         >
           <AnimatePresence mode='wait'>
             {showText && (
-              <motion.a
+              <motion.span
                 key={isDownloading ? 'downloading' : downloadComplete ? 'downloaded' : 'default'}
-                href='/resumeStevenLucas.pdf'
-                download
-                className={`${styles.fabText}`}
+                className={styles.fabText}
                 initial='hidden'
                 animate='visible'
                 exit='exit'
                 variants={textVariants}
                 transition={{ duration: 0.3 }}
-                style={{ textDecoration: 'none' }}
               >
                 {isDownloading ? t('downloading') : downloadComplete ? t('downloaded') : t('download')}
-              </motion.a>
+              </motion.span>
             )}
           </AnimatePresence>
         </motion.div>
