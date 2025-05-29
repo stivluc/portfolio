@@ -41,7 +41,7 @@ const ProfileCard = ({ bgColor }) => {
       >
         <div className={styles.profileBackgroundCircle}></div>
         <div className={styles.profileImage}>
-          <Image width={90} height={90} src='/profile.png' alt='Profile' priority />
+          <Image width={90} height={90} src='/newpp_squared.png' alt='Profile' priority />
         </div>
       </motion.div>
 
