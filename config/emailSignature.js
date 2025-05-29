@@ -29,7 +29,7 @@ export const emailSignature = `
                                     <td style="padding: 0px 1px 0px 0px;">
                                       <p style="margin: 1px;">
                                         <a href="https://stivluc.com/" target="_blank" style="text-decoration: none !important;">
-                                          <img src="https://i.ibb.co/HpcHf4D/logo-NOIR.png" alt="Logo" title="Logo" width="107" height="68" style="display: block; border: 0px;">
+                                          <img src="https://stivluc.com/Logo.png" alt="Logo" title="Logo" width="107" height="68" style="display: block; border: 0px;">
                                         </a>
                                       </p>
                                     </td>
@@ -44,7 +44,7 @@ export const emailSignature = `
                                   <tr>
                                     <td valign="middle" style="padding: 1px 5px 1px 0px; vertical-align: middle;">
                                       <p style="margin: 1px;">
-                                        <img src="https://i.ibb.co/XxM08Vr/email.png" alt="Email" width="18" height="18" style="display: block; border: 0px;">
+                                        <img src="https://www.stivluc.com/email.png" alt="Email" width="18" height="18" style="display: block; border: 0px;">
                                       </p>
                                     </td>
                                     <td style="font-family: Arial, sans-serif; font-size: 13px; line-height: 17px; white-space: nowrap; padding: 1px 0px; vertical-align: middle; color: rgb(136, 136, 135) !important;">
@@ -56,7 +56,7 @@ export const emailSignature = `
                                   <tr>
                                     <td valign="middle" style="padding: 1px 5px 1px 0px; vertical-align: middle;">
                                       <p style="margin: 1px;">
-                                        <img src="https://i.ibb.co/vj8qJpX/phone-call.png" alt="Phone" width="18" height="18" style="display: block; border: 0px;">
+                                        <img src="https://www.stivluc.com/phone.png" alt="Phone" width="18" height="18" style="display: block; border: 0px;">
                                       </p>
                                     </td>
                                     <td style="font-family: Arial, sans-serif; font-size: 13px; line-height: 17px; white-space: nowrap; padding: 1px 0px; vertical-align: middle; color: rgb(136, 136, 135) !important;">
