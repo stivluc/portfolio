@@ -2,9 +2,11 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import styles from './ResumeFAB.module.scss';
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
 const ResumeFAB = ({ sectionRef }) => {
   const t = useTranslations('resume.downloadButton');
+  const locale = useLocale();
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadComplete, setDownloadComplete] = useState(false);
   const [showText, setShowText] = useState(true);
@@ -78,6 +80,8 @@ const ResumeFAB = ({ sectionRef }) => {
     }, 2000);
   };
 
+  const cvPath = locale === 'fr' ? '/resumeStevenLucasFR.pdf' : '/resumeStevenLucasEN.pdf';
+
   // Variants for text animation
   const textVariants = {
     hidden: { opacity: 0, y: 10 },
@@ -104,13 +108,7 @@ const ResumeFAB = ({ sectionRef }) => {
       onHoverStart={() => setShowText(true)}
       onHoverEnd={handleScroll}
     >
-      <a
-        href='/resumeStevenLucas.pdf'
-        download
-        ref={hiddenDownloadLinkRef}
-        style={{ display: 'none' }}
-        aria-hidden='true'
-      >
+      <a href={cvPath} download ref={hiddenDownloadLinkRef} style={{ display: 'none' }} aria-hidden='true'>
         Hidden Download Link
       </a>
 
