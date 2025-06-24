@@ -142,6 +142,14 @@
       "title": "Wink Monaco",
       "description": "Site web pour une association soutenant les malvoyants. Comprend un système de dons, e-commerce, articles, envoi d'emails en masse, et plus encore."
     },
+    "pricetracker": {
+      "title": "Price Tracker",
+      "description": "Démo développée pour une entreprise de retail. Dashboard permettant le tracking de la propagation des prix à travers différents flux, alertant en cas d'écarts observés."
+    },
+    "hmslog": {
+      "title": "HMS Logistics",
+      "description": "Site web vitrine réalisé en deux jours avec un builder pour un besoin urgent, pour une entreprise de logistique."
+    },
     "lawyer": {
       "title": "Christine Lucas",
       "description": "Site vitrine pour une avocate, avec présentation, contact et sections services. A permis de doubler ses dossiers mensuels depuis son lancement."

@@ -142,6 +142,14 @@
       "title": "Wink Monaco",
       "description": "Website for an association supporting the visually impaired. Features include a donations system, e-commerce, articles, mass emailing, and more."
     },
+        "pricetracker": {
+      "title": "Price Tracker",
+      "description": "Demo project for a retail company. Dashboard for price tracking accross different flows, alerting in case of discrepancies."
+    },
+    "hmslog": {
+      "title": "HMS Logistics",
+      "description": "Showcase website developed in two days with a builder for an urgent need, for a logistics company."
+    },
     "lawyer": {
       "title": "Christine Lucas",
       "description": "Showcase website for a lawyer, featuring presentation, contact, and services sections. It helped double her monthly cases since its launch."
