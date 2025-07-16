@@ -17,7 +17,7 @@
     "intro": "Je suis",
     "name": "Steven Lucas",
     "a": "un",
-    "role": "Ingénieur Full-Stack",
+    "role": "Ingénieur Full Stack",
     "location": "de Lille.",
     "cta": "Donnons vie à votre projet.",
     "seeWhatICan": "En savoir plus sur moi",
@@ -86,7 +86,7 @@
     "experience": {
       "title": "Professionnel",
       "freelance": {
-        "position": "Freelance Ingénieur Full-Stack",
+        "position": "Freelance Ingénieur Full Stack",
         "company": "Auto-entrepreneur",
         "year": "Depuis Déc. 2019",
         "description": "Développement de solutions web et mobiles sur mesure pour divers clients. De sites vitrines à des applications complexes, voir ci-dessous."
@@ -98,13 +98,13 @@
         "description": "Supervision de trois ingénieurs. Référent data local. Développement de solutions internes pour optimiser les processus logistiques, réduisant le temps de contrôle de 50% et le temps d'inventaire de 30%. Rédaction technique, gestion de projet agile, formation, et présentations aux niveaux national et européen."
       },
       "louisiana": {
-        "position": "Ingénieur Full-Stack",
+        "position": "Ingénieur Full Stack",
         "company": "Institut de Recherche en Informatique, Lafayette, LA",
         "year": "Juin 2023 - Sept. 2023",
         "description": "Développement d'une solution web dans le milieu hospitalier pour optimiser la correction des transcriptions audio. Actuellement déployée dans les hôpitaux affiliés à l'état de Louisiane, la solution a permis de réduire de 50% le temps de correction moyen."
       },
       "gxo": {
-        "position": "Ingénieur Full-Stack",
+        "position": "Ingénieur Full Stack",
         "company": "GXO Logistics, Lesquin",
         "year": "Sept. 2021 - Sept. 2023",
         "description": "Développement d'une web app locale from scratch pour centraliser les données de l'entrepôt, de différentes sources. Elle permet un suivi complet des activités, des métriques de productivité, et un accès aux statistiques détaillées en quelques clics, faisant gagner plusieurs heures par jour aux responsables."
